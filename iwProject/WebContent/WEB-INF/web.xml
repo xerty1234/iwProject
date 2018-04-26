@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>ch21</display-name>
+  <display-name>ch21member</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -22,17 +22,8 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet>
-    <servlet-name>memberController</servlet-name>
-    <servlet-class>com.webjjang.member.controller.MemberController</servlet-class>
-    <load-on-startup>2</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>memberController</servlet-name>
-    <url-pattern>/member/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>boardController</servlet-name>
-    <servlet-class>com.webjjang.board.controller.BoardController</servlet-class>
+    <servlet-class>com.iw.news.board.controller.BoardController</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -41,7 +32,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>mainController</servlet-name>
-    <servlet-class>com.webjjang.main.controller.MainController</servlet-class>
+    <servlet-class>com.iw.news.main.controller.MainController</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -49,19 +40,9 @@
     <url-pattern>/main/*</url-pattern>
   </servlet-mapping>
   <filter>
-    <filter-name>authLoginCheck</filter-name>
-    <filter-class>
-  		com.webjjang.filter.AuthLoginCheckFilter
-  	</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>authLoginCheck</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  <filter>
     <filter-name>encoding</filter-name>
     <filter-class>
-  		com.webjjang.filter.EncodingFilter
+  		com.iw.news.filter.EncodingFilter
   	</filter-class>
   </filter>
   <filter-mapping>
@@ -80,6 +61,6 @@
   </filter-mapping>
   <error-page>
     <error-code>404</error-code>
-    <location>/WEB-INF/views/error/404.jsp</location>
+    <location>/WEB-INF/news/error/404.jsp</location>
   </error-page>
 </web-app>

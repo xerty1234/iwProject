@@ -11,9 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-import com.webjjang.board.dao.BoardDAO;
-import com.webjjang.member.controller.Auth;
-import com.webjjang.member.dao.MemberDAO;
+import com.iw.news.board.dao.BoardDAO;
+
 
 /**
  * Servlet implementation class Beans
@@ -44,7 +43,7 @@ public class Beans extends HttpServlet {
 		return uri.substring(uri.indexOf(request.getServletPath()));
 	}
 
-	public static String pre = "/WEB-INF/views/";
+	public static String pre = "/WEB-INF/news/";
 	public static String suf = ".jsp";
 	// 정제된 URI 넣으면 foward할 jsp로 만들어주는 메서드
 	public static String getJsp(String uri) {
@@ -58,9 +57,9 @@ public class Beans extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		// =========== dao 생성해서 저장하는 처리문. - 모든 DAO 프로그램을 다 생성해 놓는다. ================ //
-		daoBeans.put("memberDAO", new MemberDAO());
+		
 		daoBeans.put("boardDAO", new BoardDAO());
-		daoBeans.put("boardReplyDAO", new com.webjjang.board.dao.ReplyDAO());
+		daoBeans.put("boardReplyDAO", new com.iw.news.board.dao.ReplyDAO());
 		
 
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
@@ -102,8 +101,7 @@ public class Beans extends HttpServlet {
 					// 의존성 주입 - 사용하는 프로그램을 넣어준다.(setter, 생성자)
 					// 생성이된 service(handlerInstance)에 필요한 DAO 가져와서 넣는다.
 					handlerInstance.setDAO(daoBeans.get(handlerClassName[1]));
-				}
-				Auth.addAuth(command, Integer.parseInt(handlerClassName[2]));
+				}				
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
