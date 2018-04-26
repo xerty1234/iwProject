@@ -21,6 +21,18 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
+<!--   ================= 회원정보 컨트롤러 ============================== -->
+  <servlet>
+  <servlet-name>memberController</servlet-name>
+  <servlet-class>com.iw.member.controller.MemberController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>memberController</servlet-name>
+  <url-pattern>/member/*</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>boardController</servlet-name>
     <servlet-class>com.iw.news.board.controller.BoardController</servlet-class>

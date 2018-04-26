@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import com.iw.member.dao.MemberDAO;
 import com.iw.news.board.dao.BoardDAO;
 
 
@@ -44,11 +45,19 @@ public class Beans extends HttpServlet {
 	}
 
 	public static String pre = "/WEB-INF/news/";
+	public static String memberPre = "/WEB-INF";
 	public static String suf = ".jsp";
 	// 정제된 URI 넣으면 foward할 jsp로 만들어주는 메서드
 	public static String getJsp(String uri) {
 		return pre+uri.substring(0, uri.lastIndexOf("."))+suf;
 	}
+	public static String Member_getJsp(String uri)
+	{
+		String temp = memberPre+uri.substring(0, uri.lastIndexOf("."))+suf;
+		System.out.println(temp);
+		return temp;
+	}
+	
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 * 여기가 제일 먼저 실행이 되서 모든 객체를 생성한다.
@@ -59,8 +68,8 @@ public class Beans extends HttpServlet {
 		// =========== dao 생성해서 저장하는 처리문. - 모든 DAO 프로그램을 다 생성해 놓는다. ================ //
 		
 		daoBeans.put("boardDAO", new BoardDAO());
-		daoBeans.put("boardReplyDAO", new com.iw.news.board.dao.ReplyDAO());
-		
+		//daoBeans.put("boardReplyDAO", new com.iw.news.board.dao.ReplyDAO());
+		daoBeans.put("memberDAO", new MemberDAO());
 
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
 		// web.xml에 servlet 태그 안에 init-param 태그로 정의되어 있는 정보를 받는다.
