@@ -1,4 +1,4 @@
-package com.iw.news.board.dao;
+package com.iw.infoboard.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,19 +6,20 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.iw.news.board.dto.BoardDTO;
+
+import com.iw.infoboard.dto.infoBoardDTO;
 import com.webjjang.util.DBUtil;
 import com.webjjang.util.PageObject2;
 
-public class BoardDAO {
+public class infoBoardDAO {
 
 	// 오라클에 접속할때 필요한 정보들
 	// DBUtil에 다 선언함.
 
 	// 글리스트를 가져오는 메서드
-	public List<BoardDTO> list(PageObject2 pageObject){
+	public List<infoBoardDTO> list(PageObject2 pageObject){
 		System.out.println("BoardDAO.list()");
-		List<BoardDTO> list = null;
+		List<infoBoardDTO> list = null;
 		// RDBMS에서 데이터를 가져 오는 프로그램 작성
 		
 		// 필요한 객체 선언
@@ -42,12 +43,12 @@ public class BoardDAO {
 			//3. sql
 			//   1. 원래 데이터를 순서에 맞게 다가져온다.
 			String sql = "select no, title, writer, "
-					+ " writedate, hit from board "
+					+ " writedate, hit, liked from INFO_board "
 					+ search
 					+ " order by no desc ";
 			//   2. 순서에 맞게 가져온 데이터에 rownum rnum 을 붙인다.
 			sql = " select rownum rnum, no, title, writer, "
-					+" writedate, hit from ("+sql+")";
+					+" writedate, hit, liked from ("+sql+")";
 			sql = "select * from (" + sql+ ")"
 					+ " where rnum between ? and ? ";
 			System.out.println(sql);
@@ -72,7 +73,7 @@ public class BoardDAO {
 				// 데이터가 있는데 list가 null이면 생성한다.
 				if(list == null) list = new ArrayList<>();
 				// 데이터 하나를 담을 수 있는 BoardDTO 객체를 생성한다.
-				BoardDTO boardDTO = new BoardDTO();
+				infoBoardDTO boardDTO = new infoBoardDTO();
 				// 데이터를 rs에서 꺼내서 boardDTO에 담는다.
 				boardDTO.setNo(rs.getInt("no"));
 				boardDTO.setTitle(rs.getString("title"));
@@ -80,6 +81,7 @@ public class BoardDAO {
 				boardDTO.setWriteDate
 				(rs.getString("writedate"));
 				boardDTO.setHit(rs.getInt("hit"));
+				boardDTO.setLiked(rs.getInt("liked"));
 				// list에 boardDTO를 담는다.
 				list.add(boardDTO);
 			}
@@ -100,9 +102,9 @@ public class BoardDAO {
 	}
 	
 	// 글번호에 맞는 글보기 데이터를 가져오는 메서드
-	public BoardDTO view(int no) {
+	public infoBoardDTO view(int no) {
 		System.out.println("BoardDAO.view()");
-		BoardDTO boardDTO = null;
+		infoBoardDTO boardDTO = null;
 		// 오라클에서 데이터를 가져와서 채우는 프로그램 작성(생략)
 		// 사용한 객체 선언
 		Connection con = null; // 연결 객체
@@ -113,23 +115,25 @@ public class BoardDAO {
 			con = DBUtil.getConnection();
 			//3. sql문 작성
 			String sql = "select no, title, content, "
-					+ " writer, writedate, hit "
-					+ " from board "
+					+ " writer, writedate, hit, liked "
+					+ " from INFO_board "
 					+ " where no = ? "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no); // 첫번째 ?에 no를 int로 셋팅
+			
 			//5. 실행
 			rs = pstmt.executeQuery();
 			//6. 표시 rs에서 꺼내서 BoardDTO에 담는다.
 			if(rs.next()) {
 				// 생성자가 만들어져 있어야 한다.
-				boardDTO = new BoardDTO
+				boardDTO = new infoBoardDTO
 					(rs.getInt("no"), rs.getString("title"),
 						rs.getString("content"),
 						rs.getString("writer"),
 						rs.getString("writeDate"),
-						rs.getInt("hit"));
+						rs.getInt("hit"),
+						rs.getInt("liked"));
 			}
 			
 		}catch (Exception e) {
@@ -144,11 +148,12 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 		}
+		System.out.println(boardDTO.getHit());
 		return boardDTO;
 	}
 	
 	// 게시판 글쓰기 처리.
-	public void write(BoardDTO boardDTO) {
+	public void write(infoBoardDTO boardDTO) {
 		System.out.println("BoardDAO.write()");
 		// 사용한 객체 선언
 		Connection con = null; // 연결 객체
@@ -157,9 +162,9 @@ public class BoardDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "insert into board(no,title,"
+			String sql = "insert into INFO_board(no,title,"
 					+ " content, writer) "
-					+ " values(board_seq.nextval,"
+					+ " values(INFO_seq.nextval,"
 					+ " ?, ?, ?) "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
@@ -194,7 +199,7 @@ public class BoardDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "update board set hit = hit + 1 "
+			String sql = "update INFO_board set hit = hit + 1 "
 					+ " where no = ? "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
@@ -218,7 +223,7 @@ public class BoardDAO {
 	}
 
 	// 게시판 글수정 처리.
-	public void update(BoardDTO boardDTO) {
+	public void update(infoBoardDTO boardDTO) {
 		System.out.println("BoardDAO.update()");
 		// 사용한 객체 선언
 		Connection con = null; // 연결 객체
@@ -227,7 +232,7 @@ public class BoardDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "update board set "
+			String sql = "update INFO_board set "
 					+ " title = ?, content = ?, writer = ? "
 					+ " where no = ? "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
@@ -264,7 +269,7 @@ public class BoardDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "delete from board "
+			String sql = "delete from INFO_board "
 					+ " where no = ?"; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);

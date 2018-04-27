@@ -11,8 +11,8 @@
 	uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-System.out.println("default_decorator.jsp:"+request.getContextPath());
-pageContext.setAttribute("absUri", request.getContextPath());
+	System.out.println("default_decorator.jsp:" + request.getContextPath());
+	pageContext.setAttribute("absUri", request.getContextPath());
 %>
 <!DOCTYPE html>
 <html>
@@ -70,7 +70,7 @@ article {
 	margin: 0 auto;
 }
 </style>
-<decorator:head/>
+<decorator:head />
 </head>
 <body>
 	<header>
@@ -84,25 +84,32 @@ article {
 					</button>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
-					<div class="navbar-header"><a href="${absUri }/main/main.do"
-							 class="navbar-brand">웹짱</a></div>
+					<div class="navbar-header">
+						<a href="${absUri }/main/main.do" class="navbar-brand">주식게시판</a>
+					</div>
 					<ul class="nav navbar-nav">
-						<li><a href="${absUri }/notice/list.do">공지사항</a></li>
-						<li><a href="${absUri }/board/list.do">게시판</a></li>
+						<li><a href="${absUri }/infoboard/list.do">정보게시판</a></li>
+						<li><a href="${absUri }/newsboard/list.do">뉴스게시판</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-					    <c:if test="${ empty id }">
-						   <li><a href="../member/login.do">
-						   <span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
-						   <li><a href="../member/join.do">
-						   	<span class="glyphicon glyphicon-user"></span> 회원가입</a></li>
-					    </c:if>
-					    <c:if test="${ !empty id }">
-						   <li><a href="../member/logout.do">
-						   <span class="glyphicon glyphicon-log-out"> </span>로그아웃</a></li>
-						   <li><a href="#">
-						   <span class="glyphicons glyphicons-notes-2"></span>마이페이지</a></li>
-      					</c:if>
+						<c:if test="${ empty id }">
+							<li><a href="../member/login.do"> <span
+									class="glyphicon glyphicon-log-in"></span> 로그인
+							</a></li>
+							<li><a href="../member/join.do"> <span
+									class="glyphicon glyphicon-user"></span> 회원가입
+							</a></li>
+						</c:if>
+						<c:if test="${ !empty id }">
+							<li><a><span class="glyphicon glyphicon-user"></span>
+									${sessionScope.nickname}님 환영합니다.</a></li>
+							<li><a href="../member/logout.do"> <span
+									class="glyphicon glyphicon-log-out"> </span>로그아웃
+							</a></li>
+							<li><a href="#"> <span
+									class="glyphicons glyphicons-notes-2"></span>마이페이지
+							</a></li>
+						</c:if>
 
 					</ul>
 				</div>

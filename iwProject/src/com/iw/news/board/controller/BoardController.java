@@ -36,7 +36,7 @@ public class BoardController extends HttpServlet {
 		try {
 			switch (command) {
 			// 리스트
-			case "/board/list.do":
+			case "/newsboard/list.do":
 				// 리스트에 뿌릴 데이터를 가져오자. - BoardListService가 필요하다.
 				// 이미 생성해서 저장해 놓은 곳에 가져오기. - BoardListService
 				service = Beans.getService(command);
@@ -54,7 +54,7 @@ public class BoardController extends HttpServlet {
 					rowPerPage = Integer.parseInt(rowPerPageStr);
 				// 페이지 처리를 하기 위한 객체 생성  -> 다른 데이터는 자동 계산 된다.
 				PageObject2 pageObject 
-				= new PageObject2(DBUtil.getConnection(), "board",
+				= new PageObject2(DBUtil.getConnection(), "news",
 						page, rowPerPage, 10, searchKey, searchWord);
 				System.out.println(pageObject);
 				// 처리를해서 DB에 있는 데이터를 받아와서 request에 담아 둔다.
@@ -71,7 +71,7 @@ public class BoardController extends HttpServlet {
 				System.out.println(jsp);
 				break;
 			// 글보기 - get
-			case "/board/view.do":
+			case "/newsboard/view.do":
 				int no = Integer.parseInt(request.getParameter("no"));
 				service = Beans.getService(command); // BoardViewService
 				// service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
@@ -81,7 +81,7 @@ public class BoardController extends HttpServlet {
 				list.add(true); // 조회수 1 증가 시킨다.
 				request.setAttribute("boardDTO", service.excute(list));
 				request.setAttribute("replyList",
-						Beans.getService("/board/replyList.do").excute(no));
+						Beans.getService("/newsboard/replyList.do").excute(no));
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
 				jsp = Beans.getJsp(command);
 				System.out.println(jsp);
@@ -89,7 +89,7 @@ public class BoardController extends HttpServlet {
 			// 글수정 폼 - get
 			case "/board/update.do":
 				int no2 = Integer.parseInt(request.getParameter("no"));
-				service = Beans.getService("/board/view.do");//BoardViewService
+				service = Beans.getService("/newsboard/view.do");//BoardViewService
 				//service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
 				//ArryaList를 넘겨야 - 0:no, 1:isViews(boolean)
 				ArrayList<Object> list2 = new ArrayList<>();
@@ -146,42 +146,42 @@ public class BoardController extends HttpServlet {
 		try {
 			switch (command) {
 			// 글쓰기 처리
-			case "/board/write.do":
-				// 넘어오는 데이터를 BoardDTO에 담는다.
-				BoardDTO boardDTO = new BoardDTO(
-						request.getParameter("title"),
-						request.getParameter("content"),
-						request.getParameter("writer"));
-				// 처리할 서비스를 받아온다. - BoardWriteService
-				service = Beans.getService(command);
-				System.out.println(service);
-				service.excute(boardDTO);
-				jsp = "list.do";
-				System.out.println(jsp);
-				break;
-				
-			// 글수정 처리
-			case "/board/update.do":
-				// 넘어오는 데이터를 BoardDTO에 담는다.
-				BoardDTO boardDTO2 = new BoardDTO(
-						Integer.parseInt(request.getParameter("no")),
-						request.getParameter("title"),
-						request.getParameter("content"),
-						request.getParameter("writer"),null,0);
-				// service - BoardUpdateService
-				service = Beans.getService(command);
-				// 실행해서 수정처리
-				service.excute(boardDTO2);
-				// 글보기로 이동시키는데 글번호와 함께 이동시킨다.
-				jsp = "view.do?no="+boardDTO2.getNo()
-					+"&page="+request.getParameter("page")
-					+"&rowPerPage="+request.getParameter("rowPerPage")
-					+"&searchKey="+request.getParameter("searchKey")
-					+"&searchWord="+request.getParameter("searchWord");
-				break;
+//			case "/board/write.do":
+//				// 넘어오는 데이터를 BoardDTO에 담는다.
+//				BoardDTO boardDTO = new BoardDTO(
+//						request.getParameter("title"),
+//						request.getParameter("content"),
+//						request.getParameter("writer"));
+//				// 처리할 서비스를 받아온다. - BoardWriteService
+//				service = Beans.getService(command);
+//				System.out.println(service);
+//				service.excute(boardDTO);
+//				jsp = "list.do";
+//				System.out.println(jsp);
+//				break;
+//				
+//			// 글수정 처리
+//			case "/board/update.do":
+//				// 넘어오는 데이터를 BoardDTO에 담는다.
+//				BoardDTO boardDTO2 = new BoardDTO(
+//						Integer.parseInt(request.getParameter("no")),
+//						request.getParameter("title"),
+//						request.getParameter("content"),
+//						request.getParameter("writer"),null,0);
+//				// service - BoardUpdateService
+//				service = Beans.getService(command);
+//				// 실행해서 수정처리
+//				service.excute(boardDTO2);
+//				// 글보기로 이동시키는데 글번호와 함께 이동시킨다.
+//				jsp = "view.do?no="+boardDTO2.getNo()
+//					+"&page="+request.getParameter("page")
+//					+"&rowPerPage="+request.getParameter("rowPerPage")
+//					+"&searchKey="+request.getParameter("searchKey")
+//					+"&searchWord="+request.getParameter("searchWord");
+//				break;
 
 				// 댓글쓰기 처리
-				case "/board/replyWrite.do":
+				case "/newsboard/replyWrite.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
 					ReplyDTO replyDTO = new ReplyDTO(
 							Integer.parseInt(request.getParameter("no")),
@@ -199,7 +199,7 @@ public class BoardController extends HttpServlet {
 					break;
 					
 					// 댓글수정 처리
-				case "/board/replyUpdate.do":
+				case "/newsboard/replyUpdate.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
 					ReplyDTO replyDTO2 = new ReplyDTO(
 							Integer.parseInt(request.getParameter("rno")), 0,

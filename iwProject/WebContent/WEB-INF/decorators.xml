@@ -22,6 +22,12 @@
 	<decorator name="/member" page="default_decorator.jsp">
 		<pattern>/member</pattern>
 	</decorator>
+	<decorator name="/infoboard" page="default_decorator.jsp">
+		<pattern>/infoboard</pattern>
+	</decorator>
+	<decorator name="/newsboard" page="default_decorator.jsp">
+		<pattern>/newsboard</pattern>
+	</decorator>
 	
 	
 </decorators>

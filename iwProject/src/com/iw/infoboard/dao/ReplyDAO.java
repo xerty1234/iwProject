@@ -1,4 +1,4 @@
-package com.iw.news.board.dao;
+package com.iw.infoboard.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.iw.news.board.dto.ReplyDTO;
+
+import com.iw.infoboard.dto.ReplyDTO;
 import com.webjjang.util.DBUtil;
 import com.webjjang.util.PageObject2;
 
@@ -32,7 +33,7 @@ public class ReplyDAO {
 			//3. sql
 			//   1. 원래 데이터를 순서에 맞게 다가져온다.
 			String sql = "select rno, no, content, writer, "
-					+ " writedate from board_reply "
+					+ " writedate from INFO_reply "
 					+ " where no = ? "
 					+ " order by rno desc ";
 			System.out.println(sql);
@@ -86,9 +87,9 @@ public class ReplyDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "insert into board_reply(rno, "
+			String sql = "insert into INFO_reply(rno, "
 					+ " no, content, writer) "
-					+ " values(board_reply_seq.nextval, "
+					+ " values(INFO_reply_seq.nextval, "
 					+ " ?, ?, ?) "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
@@ -123,7 +124,7 @@ public class ReplyDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "update board_reply set "
+			String sql = "update INFO_reply set "
 					+ " content = ?, writer = ? "
 					+ " where rno = ? "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
@@ -159,7 +160,7 @@ public class ReplyDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "delete from board_reply "
+			String sql = "delete from INFO_reply "
 					+ " where rno = ?"; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);

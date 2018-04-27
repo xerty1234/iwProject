@@ -11,7 +11,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-import com.iw.news.board.dao.BoardDAO;
+import com.iw.infoboard.dao.ReplyDAO;
+import com.iw.infoboard.dao.infoBoardDAO;
+import com.iw.member.dao.MemberDAO;
+import com.iw.news.board.dao.NewsBoardDAO;
+import com.iw.news.board.dao.NewsReplyDAO;
 
 
 /**
@@ -43,12 +47,25 @@ public class Beans extends HttpServlet {
 		return uri.substring(uri.indexOf(request.getServletPath()));
 	}
 
-	public static String pre = "/WEB-INF/news/";
+	public static String pre = "/WEB-INF/news";
+	public static String memberPre = "/WEB-INF";
+	public static String infopre = "/WEB-INF/info";
 	public static String suf = ".jsp";
+	
 	// 정제된 URI 넣으면 foward할 jsp로 만들어주는 메서드
 	public static String getJsp(String uri) {
 		return pre+uri.substring(0, uri.lastIndexOf("."))+suf;
 	}
+	public static String Member_getJsp(String uri)
+	{
+		String temp = memberPre+uri.substring(0, uri.lastIndexOf("."))+suf;
+		System.out.println(temp);
+		return temp;
+	}
+	public static String info_getJsp(String uri) {
+		return infopre+uri.substring(0, uri.lastIndexOf("."))+suf;
+	}
+	
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 * 여기가 제일 먼저 실행이 되서 모든 객체를 생성한다.
@@ -58,10 +75,13 @@ public class Beans extends HttpServlet {
 
 		// =========== dao 생성해서 저장하는 처리문. - 모든 DAO 프로그램을 다 생성해 놓는다. ================ //
 		
-		daoBeans.put("boardDAO", new BoardDAO());
-		daoBeans.put("boardReplyDAO", new com.iw.news.board.dao.ReplyDAO());
+		daoBeans.put("boardDAO", new NewsBoardDAO());
+		//daoBeans.put("boardReplyDAO", new com.iw.news.board.dao.ReplyDAO());
+		daoBeans.put("memberDAO", new MemberDAO());
+		daoBeans.put("infoboardDAO", new infoBoardDAO());
+		daoBeans.put("boardReplyDAO", new ReplyDAO());
+		daoBeans.put("newsboardReplyDAO", new NewsReplyDAO() );
 		
-
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
 		// web.xml에 servlet 태그 안에 init-param 태그로 정의되어 있는 정보를 받는다.
 		String configFile = getInitParameter("configFile");
@@ -102,7 +122,6 @@ public class Beans extends HttpServlet {
 					// 생성이된 service(handlerInstance)에 필요한 DAO 가져와서 넣는다.
 					handlerInstance.setDAO(daoBeans.get(handlerClassName[1]));
 				}				
-				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -110,5 +129,7 @@ public class Beans extends HttpServlet {
 		} // end of while
 		System.out.println("객체생성과 연결, 권한 자료 로딩 완료!");
 	}// end of init()
+
+	
 
 }

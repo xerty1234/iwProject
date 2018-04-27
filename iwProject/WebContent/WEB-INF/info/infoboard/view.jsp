@@ -1,5 +1,5 @@
-<%@page import="com.iw.news.board.service.BoardViewService"%>
-<%@page import="com.iw.news.board.dto.BoardDTO"%>
+<%@page import="com.iw.infoboard.service.BoardViewService"%>
+<%@page import="com.iw.infoboard.dto.infoBoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -109,6 +109,10 @@ $(document).ready(function(){
 		<th>조회수</th>
 		<td>${boardDTO.hit}</td>
 	</tr>
+		<tr>
+		<th>좋아요</th>
+		<td>${boardDTO.liked}</td>
+	</tr>
 </tbody>
 <tfoot>
 	<tr>
@@ -116,6 +120,7 @@ $(document).ready(function(){
 			<button id="update" class="btn btn-primary">수정</button>
 			<button id="delete" class="btn btn-danger">삭제</button>
 			<button id="list" class="btn btn-success">리스트</button>
+			<button id="liked" class="btn btn-success">좋아요</button>
 		</td>
 	</tr>
 	<!-- 댓글 쓰기 폼 -->

@@ -21,24 +21,49 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
+<!--   ================= 회원정보 컨트롤러 ============================== -->
   <servlet>
-    <servlet-name>boardController</servlet-name>
+  <servlet-name>memberController</servlet-name>
+  <servlet-class>com.iw.member.controller.MemberController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>memberController</servlet-name>
+  <url-pattern>/member/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>newsBoardController</servlet-name>
     <servlet-class>com.iw.news.board.controller.BoardController</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>boardController</servlet-name>
-    <url-pattern>/board/*</url-pattern>
+    <servlet-name>newsBoardController</servlet-name>
+    <url-pattern>/newsboard/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>mainController</servlet-name>
+    <servlet-name>newsMainController</servlet-name>
     <servlet-class>com.iw.news.main.controller.MainController</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>mainController</servlet-name>
-    <url-pattern>/main/*</url-pattern>
+    <servlet-name>newsMainController</servlet-name>
+    <url-pattern>/newsmain/*</url-pattern>
   </servlet-mapping>
+<!--   //정보게시판 -->
+    <servlet>
+    <servlet-name>infoboardController</servlet-name>
+    <servlet-class>com.iw.infoboard.controller.BoardController</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>infoboardController</servlet-name>
+    <url-pattern>/infoboard/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   <filter>
     <filter-name>encoding</filter-name>
     <filter-class>
@@ -63,4 +88,5 @@
     <error-code>404</error-code>
     <location>/WEB-INF/news/error/404.jsp</location>
   </error-page>
+  
 </web-app>
