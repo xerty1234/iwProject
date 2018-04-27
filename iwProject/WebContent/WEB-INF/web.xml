@@ -34,13 +34,13 @@
   
   
   <servlet>
-    <servlet-name>boardController</servlet-name>
+    <servlet-name>newsBoardController</servlet-name>
     <servlet-class>com.iw.news.board.controller.BoardController</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>boardController</servlet-name>
-    <url-pattern>/board/*</url-pattern>
+    <servlet-name>newsBoardController</servlet-name>
+    <url-pattern>/news/board/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>mainController</servlet-name>

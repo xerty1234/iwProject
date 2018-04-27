@@ -21,6 +21,14 @@ public class BoardDAO {
 		List<BoardDTO> list = null;
 		// RDBMS에서 데이터를 가져 오는 프로그램 작성
 		
+		NewsCrawlerDAO crawler = new NewsCrawlerDAO();
+		try {
+			crawler.excute();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		// 필요한 객체 선언
 		Connection con = null; // 연결 객체
 		PreparedStatement pstmt = null; // 처리문 객체
@@ -126,9 +134,10 @@ public class BoardDAO {
 				// 생성자가 만들어져 있어야 한다.
 				boardDTO = new BoardDTO
 					(rs.getInt("no"), rs.getString("title"),
-						rs.getString("content"),
+						rs.getString("article"),
 						rs.getString("writer"),
 						rs.getString("writeDate"),
+						rs.getString("imageLink"),
 						rs.getInt("hit"));
 			}
 			
@@ -164,7 +173,7 @@ public class BoardDAO {
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, boardDTO.getTitle());
-			pstmt.setString(2, boardDTO.getContent());
+			pstmt.setString(2, boardDTO.getArticle());
 			pstmt.setString(3, boardDTO.getWriter());
 			//5. 실행 -> select: executeQuery()
 			//  insert, update, delete:executeUpdate()
@@ -233,7 +242,7 @@ public class BoardDAO {
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, boardDTO.getTitle());
-			pstmt.setString(2, boardDTO.getContent());
+			pstmt.setString(2, boardDTO.getArticle());
 			pstmt.setString(3, boardDTO.getWriter());
 			pstmt.setInt(4, boardDTO.getNo());
 			//5. 실행 -> select: executeQuery()
