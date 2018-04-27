@@ -81,7 +81,7 @@ public class BoardController extends HttpServlet {
 				list.add(true); // 조회수 1 증가 시킨다.
 				request.setAttribute("boardDTO", service.excute(list));
 				request.setAttribute("replyList",
-						Beans.getService("/board/replyList.do").excute(no));
+						Beans.getService("/newsboard/replyList.do").excute(no));
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
 				jsp = Beans.getJsp(command);
 				System.out.println(jsp);
@@ -89,7 +89,7 @@ public class BoardController extends HttpServlet {
 			// 글수정 폼 - get
 			case "/board/update.do":
 				int no2 = Integer.parseInt(request.getParameter("no"));
-				service = Beans.getService("/board/view.do");//BoardViewService
+				service = Beans.getService("/newsboard/view.do");//BoardViewService
 				//service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
 				//ArryaList를 넘겨야 - 0:no, 1:isViews(boolean)
 				ArrayList<Object> list2 = new ArrayList<>();

@@ -88,8 +88,8 @@ article {
 						<a href="${absUri }/main/main.do" class="navbar-brand">주식게시판</a>
 					</div>
 					<ul class="nav navbar-nav">
-						<li><a href="${absUri }/notice/list.do">공지사항</a></li>
-						<li><a href="${absUri }/board/list.do">게시판</a></li>
+						<li><a href="${absUri }/infoboard/list.do">정보게시판</a></li>
+						<li><a href="${absUri }/newsboard/list.do">뉴스게시판</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<c:if test="${ empty id }">

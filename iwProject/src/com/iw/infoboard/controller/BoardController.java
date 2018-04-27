@@ -81,7 +81,7 @@ public class BoardController extends HttpServlet {
 				ArrayList<Object> list = new ArrayList<>();
 				list.add(no);
 				list.add(true); // 조회수 1 증가 시킨다.
-				request.setAttribute("boardDTO", service.excute(list));
+				request.setAttribute("infoboardDTO", service.excute(no));
 				request.setAttribute("replyList",
 						Beans.getService("/infoboard/replyList.do").excute(no));
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
@@ -97,7 +97,7 @@ public class BoardController extends HttpServlet {
 				ArrayList<Object> list2 = new ArrayList<>();
 				list2.add(no2);
 				list2.add(false); // 조회수 1증가를 시키지 않는다.
-				request.setAttribute("boardDTO", service.excute(list2));				// viewService에서
+				request.setAttribute("infoboardDTO", service.excute(list2));				// viewService에서
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
 				jsp = Beans.info_getJsp(command);
 				System.out.println(jsp);
