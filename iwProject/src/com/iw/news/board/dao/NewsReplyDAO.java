@@ -35,6 +35,7 @@ public class NewsReplyDAO {
 					+ " writedate from news_reply "
 					+ " where no = ? "
 					+ " order by rno desc ";
+			
 			System.out.println(sql);
 			//   2. 순서에 맞게 가져온 데이터에 rownum rnum 을 붙인다.
 //			sql = " select rownum rnum, no, title, writer, "
@@ -86,7 +87,7 @@ public class NewsReplyDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "insert into board_reply(rno, "
+			String sql = "insert into news_reply(rno, "
 					+ " no, content, writer) "
 					+ " values(board_reply_seq.nextval, "
 					+ " ?, ?, ?) "; //변하는 데이터 대신 ? 사용
@@ -123,7 +124,7 @@ public class NewsReplyDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "update board_reply set "
+			String sql = "update news_reply set "
 					+ " content = ?, writer = ? "
 					+ " where rno = ? "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
@@ -159,7 +160,7 @@ public class NewsReplyDAO {
 			//1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			//3. sql문 작성
-			String sql = "delete from board_reply "
+			String sql = "delete from news_reply "
 					+ " where rno = ?"; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);

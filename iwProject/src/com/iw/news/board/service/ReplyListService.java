@@ -22,6 +22,11 @@ public class ReplyListService implements ServiceInterface{
 		// list에 데이터를 가져와서 채우는 프로그램 작성 - 글번호에 대한 댓글 처리를 위해 글번호를 전달한다.
 		// 호출
 		list = replyDAO.list((Integer) obj);
-		return list;
+		if(list != null) {
+			return list;			
+		}else {
+			System.out.println("널입니다.");
+			return null;
+		}
 	}
 }

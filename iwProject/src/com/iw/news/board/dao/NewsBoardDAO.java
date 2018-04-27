@@ -139,11 +139,7 @@ public class NewsBoardDAO {
 			// 1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			// 3. sql문 작성
-			String sql = "select no, title, article, " + " offerer, writedate, hit " + " from news " + " where no = ? "; // 변하는
-																															// 데이터
-																															// 대신
-																															// ?
-																															// 사용
+			String sql = "select no, title, article, offerer, writedate, image_link, hit " + " from news " + " where no = ? "; // 변하는  데이터  대신? 사용
 			// 4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no); // 첫번째 ?에 no를 int로 셋팅
@@ -153,7 +149,7 @@ public class NewsBoardDAO {
 			if (rs.next()) {
 				// 생성자가 만들어져 있어야 한다.
 				boardDTO = new BoardDTO(rs.getInt("no"), rs.getString("title"), rs.getString("article"),
-						rs.getString("offerer"), rs.getString("writeDate"), rs.getString("imageLink"),
+						rs.getString("offerer"), rs.getString("writedate"), rs.getString("image_link"),
 						rs.getInt("hit"));
 			}
 
@@ -217,7 +213,7 @@ public class NewsBoardDAO {
 			// 1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			// 3. sql문 작성
-			String sql = "update board set hit = hit + 1 " + " where no = ? "; // 변하는 데이터 대신 ? 사용
+			String sql = "update news set hit = hit + 1 " + " where no = ? "; // 변하는 데이터 대신 ? 사용
 			// 4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no); // 첫번째 ?에 no를 int로 셋팅
@@ -249,7 +245,7 @@ public class NewsBoardDAO {
 			// 1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			// 3. sql문 작성
-			String sql = "update board set " + " title = ?, content = ?, offerer = ? " + " where no = ? "; // 변하는 데이터 대신
+			String sql = "update news set " + " title = ?, content = ?, offerer = ? " + " where no = ? "; // 변하는 데이터 대신
 																											// ? 사용
 			// 4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
@@ -285,7 +281,7 @@ public class NewsBoardDAO {
 			// 1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			// 3. sql문 작성
-			String sql = "delete from board " + " where no = ?"; // 변하는 데이터 대신 ? 사용
+			String sql = "delete from news " + " where no = ?"; // 변하는 데이터 대신 ? 사용
 			// 4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no);
