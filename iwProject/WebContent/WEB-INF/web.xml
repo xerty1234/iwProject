@@ -40,7 +40,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>newsBoardController</servlet-name>
-    <url-pattern>/news/board/*</url-pattern>
+    <url-pattern>/newsboard/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>mainController</servlet-name>
