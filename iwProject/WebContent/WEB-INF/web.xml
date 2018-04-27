@@ -43,7 +43,7 @@
     <url-pattern>/newsboard/*</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>mainController</servlet-name>
+    <servlet-name>newsMainController</servlet-name>
     <servlet-class>com.iw.news.main.controller.MainController</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
