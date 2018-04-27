@@ -36,7 +36,7 @@ public class BoardController extends HttpServlet {
 		try {
 			switch (command) {
 			// 리스트
-			case "/board/list.do":
+			case "/newsboard/list.do":
 				// 리스트에 뿌릴 데이터를 가져오자. - BoardListService가 필요하다.
 				// 이미 생성해서 저장해 놓은 곳에 가져오기. - BoardListService
 				service = Beans.getService(command);
@@ -71,7 +71,7 @@ public class BoardController extends HttpServlet {
 				System.out.println(jsp);
 				break;
 			// 글보기 - get
-			case "/board/view.do":
+			case "/newsboard/view.do":
 				int no = Integer.parseInt(request.getParameter("no"));
 				service = Beans.getService(command); // BoardViewService
 				// service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
@@ -181,7 +181,7 @@ public class BoardController extends HttpServlet {
 //				break;
 
 				// 댓글쓰기 처리
-				case "/board/replyWrite.do":
+				case "/newsboard/replyWrite.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
 					ReplyDTO replyDTO = new ReplyDTO(
 							Integer.parseInt(request.getParameter("no")),
@@ -199,7 +199,7 @@ public class BoardController extends HttpServlet {
 					break;
 					
 					// 댓글수정 처리
-				case "/board/replyUpdate.do":
+				case "/newsboard/replyUpdate.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
 					ReplyDTO replyDTO2 = new ReplyDTO(
 							Integer.parseInt(request.getParameter("rno")), 0,

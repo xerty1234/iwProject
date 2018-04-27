@@ -26,7 +26,7 @@ public class MainController extends HttpServlet {
 		System.out.println(command);
 		switch (command) {
 		// main
-		case "/main/main.do":
+		case "/newsmain/main.do":
 			// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
 			jsp = Beans.getJsp(command);
 			System.out.println(jsp);

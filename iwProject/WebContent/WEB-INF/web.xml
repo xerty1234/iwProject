@@ -48,8 +48,8 @@
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>mainController</servlet-name>
-    <url-pattern>/main/*</url-pattern>
+    <servlet-name>newsMainController</servlet-name>
+    <url-pattern>/newsmain/*</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>encoding</filter-name>
