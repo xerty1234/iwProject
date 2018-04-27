@@ -2,17 +2,17 @@ package com.iw.news.board.service;
 
 import java.util.List;
 
-import com.iw.news.board.dao.ReplyDAO;
+import com.iw.news.board.dao.NewsReplyDAO;
 import com.iw.news.board.dto.ReplyDTO;
 import com.webjjang.util.ServiceInterface;
 
 public class ReplyListService implements ServiceInterface{
 	
-	private ReplyDAO replyDAO;
+	private NewsReplyDAO replyDAO;
 	
 	@Override
 	public void setDAO(Object obj) {
-		this.replyDAO = (ReplyDAO) obj;
+		this.replyDAO = (NewsReplyDAO) obj;
 	}
 	
 	@Override

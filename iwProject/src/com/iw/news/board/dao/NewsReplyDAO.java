@@ -10,7 +10,7 @@ import com.iw.news.board.dto.ReplyDTO;
 import com.webjjang.util.DBUtil;
 import com.webjjang.util.PageObject2;
 
-public class ReplyDAO {
+public class NewsReplyDAO {
 
 	// 오라클에 접속할때 필요한 정보들
 	// DBUtil에 다 선언함.
@@ -32,7 +32,7 @@ public class ReplyDAO {
 			//3. sql
 			//   1. 원래 데이터를 순서에 맞게 다가져온다.
 			String sql = "select rno, no, content, writer, "
-					+ " writedate from board_reply "
+					+ " writedate from news_reply "
 					+ " where no = ? "
 					+ " order by rno desc ";
 			System.out.println(sql);

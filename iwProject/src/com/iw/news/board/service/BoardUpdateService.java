@@ -1,16 +1,16 @@
 package com.iw.news.board.service;
 
-import com.iw.news.board.dao.BoardDAO;
+import com.iw.news.board.dao.NewsBoardDAO;
 import com.iw.news.board.dto.BoardDTO;
 import com.webjjang.util.ServiceInterface;
 
 public class BoardUpdateService implements ServiceInterface{
 
-	private BoardDAO boardDAO;
+	private NewsBoardDAO boardDAO;
 	
 	@Override
 	public void setDAO(Object obj) {
-		this.boardDAO = (BoardDAO) obj;
+		this.boardDAO = (NewsBoardDAO) obj;
 	}
 	
 	@Override

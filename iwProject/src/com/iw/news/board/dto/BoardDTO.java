@@ -10,25 +10,24 @@ public class BoardDTO {
 	private int no;
 	private String title;
 	private String article;
-	private String writer;
+	private String offerer;
 	private String writeDate;
 	private String imageLink;
 	private int hit;
-		
+	
+	public BoardDTO() {
+
+	}
 	// 생성자 선언
 	// 생성을 먼저하고 값은 나중에 넣겠다.
 	//기본생성자를 직접 만들었다. new BoardDTO()
-	public BoardDTO() {
-//		System.out.println("기본 생성자 실행");
-//		no = 50;
-	} 
+
 	// 데이터를 넣을 때 데이터가 준비가 다 되어 있는 경우. -> 게시판 글보기 사용
-	public BoardDTO(int no, String title, String article, String writer, String writeDate, String imageLink, int hit) {
-		super();
+	public BoardDTO(int no, String title, String article, String offerer, String writeDate, String imageLink, int hit) {
 		this.no = no;
 		this.title = title;
 		this.article = article;
-		this.writer = writer;
+		this.offerer = offerer;
 		this.writeDate = writeDate;
 		this.imageLink = imageLink;
 		this.hit = hit;
@@ -51,11 +50,11 @@ public class BoardDTO {
 	public void setArticle(String article) {
 		this.article = article;
 	}
-	public String getWriter() {
-		return writer;
+	public String getOfferer() {
+		return offerer;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setOfferer(String offerer) {
+		this.offerer = offerer;
 	}
 	public String getWriteDate() {
 		return writeDate;
@@ -77,7 +76,7 @@ public class BoardDTO {
 	}
 	@Override
 	public String toString() {
-		return "BoardDTO [no=" + no + ", title=" + title + ", article=" + article + ", writer=" + writer
+		return "BoardDTO [no=" + no + ", title=" + title + ", article=" + article + ", offerer=" + offerer
 				+ ", writeDate=" + writeDate + ", imageLink=" + imageLink + ", hit=" + hit + "]";
 	}
 	

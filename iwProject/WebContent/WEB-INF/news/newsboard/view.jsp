@@ -83,6 +83,9 @@ $(document).ready(function(){
 <div class="container">
 <h1>게시판 글보기</h1>
 <table class="table">
+<script>
+	
+</script>
 <tbody>
 <!-- 데이터를 출력한다. -->
 	<tr>
@@ -95,11 +98,15 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><pre>${boardDTO.content}</pre></td>
+		<td><pre><a src="${boardDTO.content"}></a></pre></td>
+	<tr/>
+	<tr>
+		<th>내용</th>
+		<td><pre>${boardDTO.article}</pre></td>
 	<tr/>
 	<tr>
 		<th>작성자</th>
-		<td>${boardDTO.writer}</td>
+		<td>${boardDTO.offerer}</td>
 	</tr>
 	<tr>
 		<th>작성일</th>

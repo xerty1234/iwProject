@@ -6,10 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판 리스트</title>
-<!--   <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
 	$(document)
 			.ready(
@@ -53,16 +53,16 @@
 									${(param.searchKey == "title")?"selected=\"selected\"":"" }>제목</option>
 								<option value="content"
 									${(param.searchKey == "content")?"selected=\"selected\"":"" }>내용</option>
-								<option value="writer"
-									${(param.searchKey =="writer")?"selected=\"selected\"":""}>작성자</option>
+								<option value="offerer"
+									${(param.searchKey =="offerer")?"selected=\"selected\"":""}>작성자</option>
 								<option value="title,content"
 									${(param.searchKey =="title,content")?"selected=\"selected\"":""}>제목/내용</option>
-								<option value="title,writer"
-									${(param.searchKey =="title,writer")?"selected=\"selected\"":""}>제목/작성자</option>
-								<option value="content,writer"
-									${(param.searchKey =="content,writer")?"selected=\"selected\"":""}>내용/작성자</option>
-								<option value="title,content,writer"
-									${(param.searchKey =="title,content,writer")?"selected=\"selected\"":""}>제목/내용/작성자</option>
+								<option value="title,offerer"
+									${(param.searchKey =="title,offerer")?"selected=\"selected\"":""}>제목/작성자</option>
+								<option value="content,offerer"
+									${(param.searchKey =="content,offerer")?"selected=\"selected\"":""}>내용/작성자</option>
+								<option value="title,content,offerer"
+									${(param.searchKey =="title,content,offerer")?"selected=\"selected\"":""}>제목/내용/작성자</option>
 							</select> <input type="text" class="form-control col-sm-8"
 								placeholder="Search" name="searchWord"
 								value="${param.searchWord }">
@@ -92,7 +92,7 @@
 									<!-- boardDTO.getNo() 출력 -->
 									<td>${boardDTO.no }</td>
 									<td>${boardDTO.title }</td>
-									<td>${boardDTO.writer }</td>
+									<td>${boardDTO.offerer }</td>
 									<td>${boardDTO.writeDate }</td>
 									<td>${boardDTO.hit }</td>
 								</tr>

@@ -2,17 +2,17 @@ package com.iw.news.board.service;
 
 import java.util.ArrayList;
 
-import com.iw.news.board.dao.BoardDAO;
+import com.iw.news.board.dao.NewsBoardDAO;
 import com.iw.news.board.dto.BoardDTO;
 import com.webjjang.util.ServiceInterface;
 
 public class BoardViewService implements ServiceInterface{
 
-	private BoardDAO boardDAO;
+	private NewsBoardDAO boardDAO;
 	
 	@Override
 	public void setDAO(Object obj) {
-		this.boardDAO = (BoardDAO) obj;
+		this.boardDAO = (NewsBoardDAO) obj;
 	}
 	// ArrayList에 넣어서 받는다. get(0) - no(int), get(1) - isView(boolean)
 	// update Form으로 갈때 실행해서 데이터를 가져간다. view할때 사용한다.
