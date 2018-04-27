@@ -51,6 +51,19 @@
     <servlet-name>newsMainController</servlet-name>
     <url-pattern>/newsmain/*</url-pattern>
   </servlet-mapping>
+<!--   //정보게시판 -->
+    <servlet>
+    <servlet-name>infoboardController</servlet-name>
+    <servlet-class>com.iw.infoboard.controller.BoardController</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>infoboardController</servlet-name>
+    <url-pattern>/infoboard/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   <filter>
     <filter-name>encoding</filter-name>
     <filter-class>
@@ -75,4 +88,5 @@
     <error-code>404</error-code>
     <location>/WEB-INF/news/error/404.jsp</location>
   </error-page>
+  
 </web-app>
