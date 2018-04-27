@@ -15,6 +15,7 @@ import com.iw.infoboard.dao.ReplyDAO;
 import com.iw.infoboard.dao.infoBoardDAO;
 import com.iw.member.dao.MemberDAO;
 import com.iw.news.board.dao.NewsBoardDAO;
+import com.iw.news.board.dao.NewsReplyDAO;
 
 
 /**
@@ -79,6 +80,7 @@ public class Beans extends HttpServlet {
 		daoBeans.put("memberDAO", new MemberDAO());
 		daoBeans.put("infoboardDAO", new infoBoardDAO());
 		daoBeans.put("boardReplyDAO", new ReplyDAO());
+		daoBeans.put("newsboardReplyDAO", new NewsReplyDAO() );
 		
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
 		// web.xml에 servlet 태그 안에 init-param 태그로 정의되어 있는 정보를 받는다.

@@ -98,7 +98,8 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><pre><a src="${boardDTO.content"}></a></pre></td>
+		<td><pre><a src="${boardDTO.imageLink}"></a></pre></td>
+		
 	<tr/>
 	<tr>
 		<th>내용</th>
