@@ -38,8 +38,8 @@ public class NewsBoardDAO {
 				con = DBUtil.getConnection();
 
 				for (int i = 0; i < boardAr.size(); i++) {
-					String sql = "insert into news(no, title, " + " article, offerer, writedate, image_link) "
-							+ " values(news_seq.nextval, ?," + " ?, ?, ?, ?) ";
+					String sql = "insert into news(no, title, article, offerer, writedate, image_link) "
+							+ " values(news_seq.nextval, ?, ?, ?, ?, ?) ";
 
 					pstmt = con.prepareStatement(sql);
 					pstmt.setString(1, boardAr.get(i).getTitle());
@@ -47,6 +47,7 @@ public class NewsBoardDAO {
 					pstmt.setString(3, boardAr.get(i).getOfferer());
 					pstmt.setString(4, boardAr.get(i).getWriteDate());
 					pstmt.setString(5, boardAr.get(i).getImageLink());
+					
 
 					pstmt.executeUpdate();
 				}
