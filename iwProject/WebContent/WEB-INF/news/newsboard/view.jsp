@@ -18,11 +18,11 @@ $(document).ready(function(){
 // 	alert("OK");
 	$("#replyUpdateDiv").hide();
 	// 버튼 이벤트 처리
-	$("#update").click(function(){
+// 	$("#update").click(function(){
 // 		location="update.do?no="+$("#td_no").text();
-		$("#dataForm").attr("action","update.do");
-		$("#dataForm").submit();
-	});
+// 		$("#dataForm").attr("action","update.do");
+// 		$("#dataForm").submit();
+// 	});
 	$("#delete").click(function(){
 		if(confirm("정말 삭제하시겠습니까?"))
 			location="delete.do?no="+$("#td_no").text();
@@ -82,10 +82,10 @@ $(document).ready(function(){
 </form>
 
 <div class="container">
-<h1>게시판 글보기</h1>
+<h1>뉴스 게시판 글보기</h1>
 
 
-<div class=col-lg-1 id="td_no">번호 : ${boardDTO.no}</div>
+<div class=col-lg-1 id="td_no">${boardDTO.no}</div>
 <div class=col-lg-4 >제목 : ${boardDTO.title}</div>
 <div class=col-lg-2 >제공 : ${boardDTO.offerer}</div>
 <div class=col-lg-3 >작성일 : ${boardDTO.writeDate}</div>
@@ -102,7 +102,6 @@ $(document).ready(function(){
 	<tbody>
 	<tr>
 		<td colspan="2">
-			<button id="update" class="btn btn-primary">수정</button>
 			<button id="delete" class="btn btn-danger">삭제</button>
 			<button id="list" class="btn btn-success">리스트</button>
 		</td>
