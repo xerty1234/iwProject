@@ -78,6 +78,16 @@
   </servlet-mapping>
   
   
+  <servlet>
+  <servlet-name>freeController</servlet-name>
+  <servlet-class>com.iw.free.controller.FreeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>freeController</servlet-name>
+  <url-pattern>/freeboard/*</url-pattern>
+  </servlet-mapping>
+  
+  
   
   
   

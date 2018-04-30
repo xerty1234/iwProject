@@ -30,9 +30,10 @@ public class FreeController extends HttpServlet {
 		System.out.println("커맨드:" + command);
 		try {
 			switch (command) {
-			case "/board/list.do":
+			case "/freeboard/list.do":
 				// 리스트에 뿌릴 데이터를 가져오자. - BoardListService가 필요하다.
 				// 이미 생성해서 저장해 놓은 곳에 가져오기.
+				
 				service = Beans.getService(command);
 				int page = 1;
 				int rowPerPage = 10;
@@ -54,17 +55,17 @@ public class FreeController extends HttpServlet {
 				request.setAttribute("list", service.excute(pageObject));
 				request.setAttribute("pageObject", pageObject);
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다
-				jsp = Beans.getJsp(command);
+				jsp = Beans.free_getJsp(command);
 				System.out.println(jsp);
 				break;
 			// 글쓰기 폼 - get
-			case "/board/write.do":
+			case "/freeboard/write.do":
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.getJsp(command);
+				jsp = Beans.free_getJsp(command);
 				System.out.println(jsp);
 				break;
 			// 글보기 - get
-			case "/board/view.do":
+			case "/freeboard/view.do":
 				int no = Integer.parseInt(request.getParameter("no"));
 				service = Beans.getService(command); // BoardViewService
 				// service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
@@ -75,11 +76,11 @@ public class FreeController extends HttpServlet {
 				request.setAttribute("boardDTO", service.excute(list));
 				request.setAttribute("replyList", Beans.getService("/board/replyList.do").excute(no));
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.getJsp(command);
+				jsp = Beans.free_getJsp(command);
 				System.out.println(jsp);
 				break;
 			// 글수정 폼 - get
-			case "/board/update.do":
+			case "/freeboard/update.do":
 				int no2 = Integer.parseInt(request.getParameter("no"));
 				service = Beans.getService("/board/view.do");// BoardViewService
 				// service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
@@ -89,11 +90,11 @@ public class FreeController extends HttpServlet {
 				list2.add(false); // 조회수 1증가를 시키지 않는다.
 				request.setAttribute("boardDTO", service.excute(list2)); // viewService에서
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.getJsp(command);
+				jsp = Beans.free_getJsp(command);
 				System.out.println(jsp);
 				break;
 			// 글삭제
-			case "/board/delete.do":
+			case "/freeboard/delete.do":
 				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
 				service = Beans.getService(command);
 				// 글번호를 받아서 삭제 처리를 한다.
@@ -132,7 +133,7 @@ public class FreeController extends HttpServlet {
 		try {
 			switch (command) {
 			// 글쓰기 처리
-			case "/board/write.do":
+			case "/freeboard/write.do":
 				// 넘어오는 데이터를 BoardDTO에 담는다.
 				FreeDTO freeDTO = new FreeDTO(
 						request.getParameter("title"),
@@ -147,7 +148,7 @@ public class FreeController extends HttpServlet {
 				break;
 				
 			// 글수정 처리
-			case "/board/update.do":
+			case "/freeboard/update.do":
 				// 넘어오는 데이터를 BoardDTO에 담는다.
 				FreeDTO freeDTO2 = new FreeDTO(
 						Integer.parseInt(request.getParameter("no")),
@@ -167,7 +168,7 @@ public class FreeController extends HttpServlet {
 				break;
 
 				// 댓글쓰기 처리
-				case "/board/replyWrite.do":
+				case "/freeboard/replyWrite.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
 					FReplyDTO replyDTO = new FReplyDTO(
 							Integer.parseInt(request.getParameter("no")),
@@ -185,7 +186,7 @@ public class FreeController extends HttpServlet {
 					break;
 					
 					// 댓글수정 처리
-				case "/board/replyUpdate.do":
+				case "/freeboard/replyUpdate.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
 					FReplyDTO replyDTO2 = new FReplyDTO(
 							Integer.parseInt(request.getParameter("rno")), 0,

@@ -54,6 +54,7 @@ public class Beans extends HttpServlet {
 	public static String infopre = "/WEB-INF/info";
 	public static String trendpre = "/WEB-INF/trend";
 	public static String suf = ".jsp";
+	public static String freeper = "/WEB-INF/free";
 	
 	// 정제된 URI 넣으면 foward할 jsp로 만들어주는 메서드
 	public static String getJsp(String uri) {
@@ -72,6 +73,9 @@ public class Beans extends HttpServlet {
 		return infopre+uri.substring(0, uri.lastIndexOf("."))+suf;
 	}
 	
+	public static String free_getJsp(String uri) {
+		return freeper+uri.substring(0, uri.lastIndexOf("."))+suf;
+	}
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 * 여기가 제일 먼저 실행이 되서 모든 객체를 생성한다.
