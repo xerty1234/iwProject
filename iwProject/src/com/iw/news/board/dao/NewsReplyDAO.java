@@ -89,7 +89,7 @@ public class NewsReplyDAO {
 			//3. sql문 작성
 			String sql = "insert into news_reply(rno, "
 					+ " no, content, writer) "
-					+ " values(board_reply_seq.nextval, "
+					+ " values(news_reply_seq.nextval, "
 					+ " ?, ?, ?) "; //변하는 데이터 대신 ? 사용
 			//4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
