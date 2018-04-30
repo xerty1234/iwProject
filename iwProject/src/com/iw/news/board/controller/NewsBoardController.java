@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.iw.news.board.dto.BoardDTO;
 import com.iw.news.board.dto.ReplyDTO;
 import com.webjjang.util.Beans;
 import com.webjjang.util.DBUtil;
