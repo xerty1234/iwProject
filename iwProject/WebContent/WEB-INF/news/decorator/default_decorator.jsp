@@ -119,6 +119,5 @@ article {
 	<article>
 		<decorator:body />
 	</article>
-	
 </body>
 </html>
