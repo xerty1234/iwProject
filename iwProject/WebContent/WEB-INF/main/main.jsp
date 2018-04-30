@@ -166,7 +166,7 @@ text-overflow: ellipsis;
 				<h2>자유게시판</h2>
 				<p>자유롭게 게시물을 올려놓는 게시판 </p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">View details
+					<a class="btn btn-default" href="${absUri }/freeboard/list.do" role="button">자유게시판
 						&raquo;</a>
 				</p>
 			</div>

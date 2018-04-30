@@ -90,6 +90,7 @@ article {
 					<ul class="nav navbar-nav">
 						<li><a href="${absUri }/infoboard/list.do">정보게시판</a></li>
 						<li><a href="${absUri }/newsboard/list.do">뉴스게시판</a></li>
+						<li><a href="${absUri }/freeboard/list.do">자유게시판</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<c:if test="${ empty id }">

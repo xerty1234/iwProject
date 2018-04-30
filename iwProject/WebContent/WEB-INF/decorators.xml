@@ -31,6 +31,9 @@
 	<decorator name="main" page="default_decorator.jsp">
 		<pattern>/main</pattern>
 	</decorator>
+	<decorator name="/freeboard" page="default_decorator.jsp">
+		<pattern>/freeboard</pattern>
+	</decorator>
 	
 	
 </decorators>
