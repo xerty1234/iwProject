@@ -84,7 +84,7 @@ $(document).ready(function(){
 <div class="container">
 <h1>뉴스 게시판 글보기</h1>
 
-
+<!-- 번호, 제목, 작성일등을 일렬로 출력한다.  -->
 <div class=col-lg-1 id="td_no">${boardDTO.no}</div>
 <div class=col-lg-4 >제목 : ${boardDTO.title}</div>
 <div class=col-lg-2 >제공 : ${boardDTO.offerer}</div>
@@ -92,6 +92,7 @@ $(document).ready(function(){
 <div class=col-lg-2 >조회수 : ${boardDTO.hit}</div>
 <br/>
 <br/>
+<!-- 사진 이미지와 기사를 출력한다.  -->
 <div style="float:left; margin: 30px"><img src="${boardDTO.imageLink}" /></div>
 <div style="font-size: 18px; text-align: center">${boardDTO.article}</div>
 

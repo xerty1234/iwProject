@@ -36,7 +36,7 @@
 <!--  ============================ 뉴스 서블릿 =========================================-->
    <servlet>
     <servlet-name>newsBoardController</servlet-name>
-    <servlet-class>com.iw.news.board.controller.BoardController</servlet-class>
+    <servlet-class>com.iw.news.board.controller.NewsBoardController</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
