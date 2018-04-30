@@ -81,13 +81,13 @@ public class Beans extends HttpServlet {
 
 		// =========== dao 생성해서 저장하는 처리문. - 모든 DAO 프로그램을 다 생성해 놓는다. ================ //
 		
-		daoBeans.put("boardDAO", new NewsBoardDAO());
+		daoBeans.put("NewsBoardDAO", new NewsBoardDAO());
 		//daoBeans.put("boardReplyDAO", new com.iw.news.board.dao.ReplyDAO());
 		daoBeans.put("memberDAO", new MemberDAO());
 		daoBeans.put("infoboardDAO", new infoBoardDAO());
 		daoBeans.put("trendboardDAO", new TrendBoardDAO());
 		daoBeans.put("boardReplyDAO", new ReplyDAO());
-		daoBeans.put("newsboardReplyDAO", new NewsReplyDAO() );
+		daoBeans.put("NewsReplyDAO", new NewsReplyDAO() );
 		daoBeans.put("trendboardReplyDAO", new TrendReplyDAO() );
 		
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
