@@ -113,6 +113,21 @@ text-overflow: ellipsis;
 					</div>
 				</div>
 			</div>
+			<div class="item">
+				<img class="fourth-slide"
+					src="http://imgnews.naver.com/image/030/2017/09/28/0002645258_001_20170928181123707.jpg"
+					alt="Fourth slide" style="width:20%;">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>주가게시판 </h1>
+						<p>주가정보, 등락률 등을 확인하는 게시판</p>
+<!-- 						<p> -->
+<!-- 							<a class="btn btn-lg btn-primary" href="#" role="button">Learn -->
+<!-- 								more</a> -->
+<!-- 						</p> -->
+					</div>
+				</div>
+			</div>
 		</div>
 		<a class="left carousel-control" href="#myCarousel" role="button"
 			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
@@ -155,6 +170,18 @@ text-overflow: ellipsis;
 				</p>
 				<p>
 					<a class="btn btn-default" href="${absUri }/infoboard/list.do" role="button">뉴스게시판
+						&raquo;</a>
+				</p>
+			</div>
+			<!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<img class="img-circle"
+					src="http://blogfiles13.naver.net/MjAxODAzMjZfMzMg/MDAxNTIyMDMzMTY0ODMy.5XPjD9FSkowInJSmxRfE5L0EjPAw3PPI-b9p-u8KCwQg.llBIQrLIdYOsMvnqK9FzuQUCnO9TxuYmrUH3sShqEEQg.PNG.taiziboys/2018-02-22_22%3B21%3B21.PNG"
+					alt="Generic placeholder image" width="140" height="140">
+				<h2>주가게시판</h2>
+				<p>주가정보, 등락률 등을 확인하는 게시판</p>
+				<p>
+					<a class="btn btn-default" href="${absUri }/trendboard/list.do" role="button">주가게시판
 						&raquo;</a>
 				</p>
 			</div>

@@ -65,6 +65,17 @@
     <url-pattern>/infoboard/*</url-pattern>
   </servlet-mapping>
   
+<!--  ============================ 주가 게시판 서블릿 =========================================-->
+   <servlet>
+    <servlet-name>trendboardController</servlet-name>
+    <servlet-class>com.iw.trendboard.controller.TrendController</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>trendboardController</servlet-name>
+    <url-pattern>/trendboard/*</url-pattern>
+  </servlet-mapping>
+  
   
 <!--  ============================ 메인 게시판 서블릿 =========================================-->  
  <servlet>

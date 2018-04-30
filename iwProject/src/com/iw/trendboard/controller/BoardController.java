@@ -62,13 +62,13 @@ public class BoardController extends HttpServlet {
 				request.setAttribute("list", service.excute(pageObject));
 				request.setAttribute("pageObject", pageObject);
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.info_getJsp(command);
+				jsp = Beans.trend_getJsp(command);
 				System.out.println(jsp);
 				break;
 			// 글쓰기 폼 - get
 			case "/trendboard/write.do":
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.info_getJsp(command);
+				jsp = Beans.trend_getJsp(command);
 				System.out.println(jsp);
 				break;
 			// 글보기 - get
@@ -84,7 +84,7 @@ public class BoardController extends HttpServlet {
 				request.setAttribute("replyList",
 						Beans.getService("/trendboard/replyList.do").excute(no));
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.info_getJsp(command);
+				jsp = Beans.trend_getJsp(command);
 				System.out.println(jsp);
 				break;
 			// 글수정 폼 - get
@@ -147,7 +147,7 @@ public class BoardController extends HttpServlet {
 		try {
 			switch (command) {
 			// 글쓰기 처리
-			case "/infoboard/write.do":
+			case "/trendboard/write.do":
 				// 넘어오는 데이터를 BoardDTO에 담는다.
 				TrendBoardDTO boardDTO = new TrendBoardDTO(
 						request.getParameter("title"),

@@ -14,6 +14,8 @@ import com.iw.infoboard.dto.infoBoardDTO;
 import com.iw.member.dto.MemberDTO;
 import com.iw.news.board.dao.NewsBoardDAO;
 import com.iw.news.board.dto.BoardDTO;
+import com.iw.trendboard.dao.TrendBoardDAO;
+import com.iw.trendboard.dto.TrendBoardDTO;
 import com.webjjang.util.Beans;
 
 /**
@@ -51,10 +53,13 @@ public class mainController extends HttpServlet
 				com.iw.news.board.dto.BoardDTO  newsDTO = news.getMainHighlights();
 				infoBoardDAO info = new infoBoardDAO();
 				infoBoardDTO infoDTO = info.getMainHighlights();
+				TrendBoardDAO trend = new TrendBoardDAO();
+				TrendBoardDTO trendDTO = trend.getMainHighlights();
 				
 				
 				request.setAttribute("news", newsDTO);
 				request.setAttribute("info", infoDTO);
+				request.setAttribute("trend", trendDTO);
 				
 				jsp = Beans.Member_getJsp(command);
 				
