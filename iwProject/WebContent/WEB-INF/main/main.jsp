@@ -120,13 +120,10 @@
 		<div class="row">
 			<div class="col-lg-4">
 				<img class="img-circle"
-					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+					src="http://www.boannews.com/media/upFiles/937042(500).jpg"
 					alt="Generic placeholder image" width="140" height="140">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
-					euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
-					Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-					Praesent commodo cursus magna.</p>
+				<h2>정보게시판</h2>
+				<p>주식 정보를 서로 주고 받는 게시판 </p>
 				<p>
 					<a class="btn btn-default" href="#" role="button">View details
 						&raquo;</a>
@@ -135,13 +132,11 @@
 			<!-- /.col-lg-4 -->
 			<div class="col-lg-4">
 				<img class="img-circle"
-					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+					src="http://outstanding.kr/wp-content/uploads/2018/04/%EC%9D%B4%EC%8A%88%EB%89%B4%EC%8A%A4-400x286.png"
 					alt="Generic placeholder image" width="140" height="140">
-				<h2>Heading</h2>
-				<p>Duis mollis, est non commodo luctus, nisi erat porttitor
-					ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
-					purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo,
-					tortor mauris condimentum nibh.</p>
+				<h2>뉴스게시판</h2>
+				<p>주식 뉴스등을 모아둔 게시판 
+				</p>
 				<p>
 					<a class="btn btn-default" href="#" role="button">View details
 						&raquo;</a>
@@ -150,13 +145,10 @@
 			<!-- /.col-lg-4 -->
 			<div class="col-lg-4">
 				<img class="img-circle"
-					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+					src="http://mblogthumb2.phinf.naver.net/MjAxNzA0MjRfMjM4/MDAxNDkzMDE0MTIxNzU5.5BPRxmyT8AJ7ziUt-0FacLgl57QXWy7fG_7j80wSMwQg.hY-UTpF5IVyHSFSuyyR_kOBQL95XfQxxSRsaj5Lns9Mg.JPEG.buy2life/%EC%9E%90%EC%9C%A0.jpg?type=w800"
 					alt="Generic placeholder image" width="140" height="140">
-				<h2>Heading</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-					egestas eget quam. Vestibulum id ligula porta felis euismod semper.
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-					nibh, ut fermentum massa justo sit amet risus.</p>
+				<h2>자유게시판</h2>
+				<p>자유롭게 게시물을 올려놓는 게시판 </p>
 				<p>
 					<a class="btn btn-default" href="#" role="button">View details
 						&raquo;</a>
