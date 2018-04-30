@@ -4,11 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+
+<%
+	System.out.println("default_decorator.jsp:" + request.getContextPath());
+	pageContext.setAttribute("absUri", request.getContextPath());
+%>
 
 <link rel="icon" href="../../favicon.ico">
 
@@ -37,7 +43,17 @@
   width:100%;
   max-height: 200px !important;
 }
+.ellipsis { 
+ display: inline-block;
+ width: 200px; 
+ white-space: nowrap;
+  overflow: hidden;
+text-overflow: ellipsis;
+ }
+
 </style>
+
+
 
 <!-- Carousel
     ================================================== -->
@@ -125,7 +141,7 @@
 				<h2>정보게시판</h2>
 				<p>주식 정보를 서로 주고 받는 게시판 </p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">View details
+					<a class="btn btn-default" href="${absUri }/infoboard/list.do" role="button">정보게시판
 						&raquo;</a>
 				</p>
 			</div>
@@ -138,7 +154,7 @@
 				<p>주식 뉴스등을 모아둔 게시판 
 				</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">View details
+					<a class="btn btn-default" href="${absUri }/infoboard/list.do" role="button">뉴스게시판
 						&raquo;</a>
 				</p>
 			</div>
@@ -166,17 +182,13 @@
 		<div class="row featurette">
 			<div class="col-md-7">
 				<h2 class="featurette-heading">
-					First featurette heading. <span class="text-muted">It'll
-						blow your mind.</span>
+					${news.title } 
 				</h2>
-				<p class="lead">Donec ullamcorper nulla non metus auctor
-					fringilla. Vestibulum id ligula porta felis euismod semper.
-					Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-					Fusce dapibus, tellus ac cursus commodo.</p>
+				<p class="ellipsis">${news.article }</p>
 			</div>
 			<div class="col-md-5">
 				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+					data-src="holder.js/500x500/auto" src="${news.imageLink }">
 			</div>
 		</div>
 
@@ -185,17 +197,13 @@
 		<div class="row featurette">
 			<div class="col-md-7 col-md-push-5">
 				<h2 class="featurette-heading">
-					Oh yeah, it's that good. <span class="text-muted">See for
-						yourself.</span>
+					${info.title } 
 				</h2>
-				<p class="lead">Donec ullamcorper nulla non metus auctor
-					fringilla. Vestibulum id ligula porta felis euismod semper.
-					Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-					Fusce dapibus, tellus ac cursus commodo.</p>
+				<p>${info.content }</p>
 			</div>
 			<div class="col-md-5 col-md-pull-7">
 				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+					data-src="holder.js/500x500/auto" src="http://files.idg.co.kr/ciokr/image/electronic-jungle.jpg">
 			</div>
 		</div>
 

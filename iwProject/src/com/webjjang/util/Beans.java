@@ -16,6 +16,8 @@ import com.iw.infoboard.dao.infoBoardDAO;
 import com.iw.member.dao.MemberDAO;
 import com.iw.news.board.dao.NewsBoardDAO;
 import com.iw.news.board.dao.NewsReplyDAO;
+import com.iw.trendboard.dao.TrendBoardDAO;
+import com.iw.trendboard.dao.TrendReplyDAO;
 
 
 /**
@@ -50,6 +52,7 @@ public class Beans extends HttpServlet {
 	public static String pre = "/WEB-INF/news";
 	public static String memberPre = "/WEB-INF";
 	public static String infopre = "/WEB-INF/info";
+	public static String trendpre = "/WEB-INF/trend";
 	public static String suf = ".jsp";
 	
 	// 정제된 URI 넣으면 foward할 jsp로 만들어주는 메서드
@@ -63,6 +66,9 @@ public class Beans extends HttpServlet {
 		return temp;
 	}
 	public static String info_getJsp(String uri) {
+		return infopre+uri.substring(0, uri.lastIndexOf("."))+suf;
+	}
+	public static String trend_getJsp(String uri) {
 		return infopre+uri.substring(0, uri.lastIndexOf("."))+suf;
 	}
 	
@@ -79,8 +85,10 @@ public class Beans extends HttpServlet {
 		//daoBeans.put("boardReplyDAO", new com.iw.news.board.dao.ReplyDAO());
 		daoBeans.put("memberDAO", new MemberDAO());
 		daoBeans.put("infoboardDAO", new infoBoardDAO());
+		daoBeans.put("trendboardDAO", new TrendBoardDAO());
 		daoBeans.put("boardReplyDAO", new ReplyDAO());
 		daoBeans.put("newsboardReplyDAO", new NewsReplyDAO() );
+		daoBeans.put("trendboardReplyDAO", new TrendReplyDAO() );
 		
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
 		// web.xml에 servlet 태그 안에 init-param 태그로 정의되어 있는 정보를 받는다.

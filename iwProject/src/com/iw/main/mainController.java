@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.iw.infoboard.dao.infoBoardDAO;
+import com.iw.infoboard.dto.infoBoardDTO;
 import com.iw.member.dto.MemberDTO;
+import com.iw.news.board.dao.NewsBoardDAO;
+import com.iw.news.board.dto.BoardDTO;
 import com.webjjang.util.Beans;
 
 /**
@@ -43,7 +47,17 @@ public class mainController extends HttpServlet
 			{
 			// 리스트
 			case "/main/main.do":
+				NewsBoardDAO news  = new NewsBoardDAO();
+				com.iw.news.board.dto.BoardDTO  newsDTO = news.getMainHighlights();
+				infoBoardDAO info = new infoBoardDAO();
+				infoBoardDTO infoDTO = info.getMainHighlights();
+				
+				
+				request.setAttribute("news", newsDTO);
+				request.setAttribute("info", infoDTO);
+				
 				jsp = Beans.Member_getJsp(command);
+				
 				break;
 
 			default:

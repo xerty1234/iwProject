@@ -18,7 +18,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>웹짱:<decorator:title /></title>
+<title>iw<decorator:title /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -119,8 +119,5 @@ article {
 	<article>
 		<decorator:body />
 	</article>
-	<footer class="container-fluid text-center">
-		<p>이 홈페이지의 저작권은 나훈주에게 있습니다.</p>
-	</footer>
 </body>
 </html>

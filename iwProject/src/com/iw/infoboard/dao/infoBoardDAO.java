@@ -291,5 +291,55 @@ public class infoBoardDAO {
 			}
 		}
 	}
+	
+	public infoBoardDTO getMainHighlights() {
+		System.out.println("BoardDAO.view()");
+		infoBoardDTO boardDTO = null;
+		// 오라클에서 데이터를 가져와서 채우는 프로그램 작성(생략)
+		// 사용한 객체 선언
+		Connection con = null; // 연결 객체
+		PreparedStatement pstmt = null; // 처리문 객체
+		ResultSet rs = null; // 결과 객체		
+		try {
+			//1. 드라이버 확인 //2. 연결
+			con = DBUtil.getConnection();
+			//3. sql문 작성
+			String sql = "SELECT  no, title, content, writer, writeDate, hit, liked " + 
+					" FROM info_board " + 
+					" WHERE hit = (SELECT MAX(hit)AS hit FROM info_board)"; //변하는 데이터 대신 ? 사용
+			//4. 처리문 객체
+			pstmt = con.prepareStatement(sql);
+
+			
+			//5. 실행
+			rs = pstmt.executeQuery();
+			//6. 표시 rs에서 꺼내서 BoardDTO에 담는다.
+			if(rs.next()) {
+				// 생성자가 만들어져 있어야 한다.
+				boardDTO = new infoBoardDTO
+					(rs.getInt("no"), rs.getString("title"),
+						rs.getString("content"),
+						rs.getString("writer"),
+						rs.getString("writeDate"),
+						rs.getInt("hit"),
+						rs.getInt("liked"));
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				// 7. 닫기
+				DBUtil.close(con, pstmt, rs);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		System.out.println(boardDTO.getHit());
+		return boardDTO;
+	}
+	
 
 }
