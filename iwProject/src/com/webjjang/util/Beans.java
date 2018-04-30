@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import com.iw.free.dao.FReplyDAO;
+import com.iw.free.dao.FreeDAO;
 import com.iw.infoboard.dao.ReplyDAO;
 import com.iw.infoboard.dao.infoBoardDAO;
 import com.iw.member.dao.MemberDAO;
@@ -93,6 +95,10 @@ public class Beans extends HttpServlet {
 		daoBeans.put("boardReplyDAO", new ReplyDAO());
 		daoBeans.put("NewsReplyDAO", new NewsReplyDAO() );
 		daoBeans.put("trendboardReplyDAO", new TrendReplyDAO() );
+		
+		daoBeans.put("freeboardDAO", new FreeDAO());
+		daoBeans.put("freeReplyDAO", new FReplyDAO());
+		
 		
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
 		// web.xml에 servlet 태그 안에 init-param 태그로 정의되어 있는 정보를 받는다.
