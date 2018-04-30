@@ -34,6 +34,10 @@ $(document).ready(function(){
 		$("#dataForm").submit();
 	});
 	
+	$("#repDeleteBtn").click(function(){
+		if(confirm("정말 삭제하시겠습니까?"))
+			location="replyDelete.do?no="+$("#rno").text();
+	});
 	// 댓글에 대한 이벤트 처리
 	$("#replyWriteBtn").click(function(){
 		$("#replyForm").attr("action","replyWrite.do").submit();
@@ -68,6 +72,8 @@ $(document).ready(function(){
 		// 버튼을 바꿔준다.
 		$("#replyWriteDiv, #replyUpdateDiv").toggle(); // hide <-> show
 	});
+	
+	
 });
 </script>
 </head>

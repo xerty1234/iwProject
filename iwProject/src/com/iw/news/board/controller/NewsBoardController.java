@@ -198,11 +198,32 @@ public class NewsBoardController extends HttpServlet {
 					System.out.println(jsp);
 					break;
 					
+				case "/newsboard/replyDelete.do":
+					// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
+					service = Beans.getService(command);
+					// 글번호를 받아서 삭제 처리를 한다.
+					service.excute(Integer.parseInt(request.getParameter("rno")));
+					// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
+					jsp = "redirect:list.do";
+					System.out.println(jsp);
+					break;
+					
 				
-			default:
-				System.out.println("존재하지 않는 자원을 요청");
-				jsp="/WEB-INF/views/error/404.jsp";
-				break;
+					
+				default:
+					System.out.println("존재하지 않는 자원을 요청");
+					jsp="/WEB-INF/views/error/404.jsp";
+					break;
+				}
+				if(jsp.indexOf("redirect:") == -1) // redirect: 존재하지 않는다.
+					// jsp쪽으로 이동한다.
+					request.getRequestDispatcher(jsp).forward(request, response);
+				else {// redirect: 존재한다.
+					// 앞에 붙는 redirect: 을 없앤다.
+					jsp = jsp.substring("redirect:".length());
+					// uri쪽으로 이동한다.
+					response.sendRedirect(jsp);
+					
 			}
 			// uri쪽으로 이동한다.
 			response.sendRedirect(jsp);
