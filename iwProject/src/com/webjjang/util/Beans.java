@@ -96,8 +96,8 @@ public class Beans extends HttpServlet {
 		daoBeans.put("NewsReplyDAO", new NewsReplyDAO() );
 		daoBeans.put("trendboardReplyDAO", new TrendReplyDAO() );
 		
-		daoBeans.put("freeboardDAO", new FreeDAO());
-		daoBeans.put("freeReplyDAO", new FReplyDAO());
+		daoBeans.put("FreeDAO", new FreeDAO());
+		daoBeans.put("FReplyDAO", new FReplyDAO());
 		
 		
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============
