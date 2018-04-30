@@ -302,5 +302,52 @@ public class NewsBoardDAO {
 			}
 		}
 	}
+	
+	public BoardDTO getMainHighlights ()
+	{
+		System.out.println("BoardDAO.view()");
+		BoardDTO boardDTO = null;
+		// 오라클에서 데이터를 가져와서 채우는 프로그램 작성(생략)
+		// 사용한 객체 선언
+		Connection con = null; // 연결 객체
+		PreparedStatement pstmt = null; // 처리문 객체
+		ResultSet rs = null; // 결과 객체
+		try {
+			// 1. 드라이버 확인 //2. 연결
+			con = DBUtil.getConnection();
+			// 3. sql문 작성
+			String sql = "SELECT  no, title, article, offerer, image_link, writedate, hit " + 
+					" FROM news " + 
+					" WHERE hit = (SELECT MAX(hit)AS hit FROM news)"; 
+			// 4. 처리문 객체
+			pstmt = con.prepareStatement(sql);
+			
+			// 5. 실행
+			rs = pstmt.executeQuery();
+			// 6. 표시 rs에서 꺼내서 BoardDTO에 담는다.
+			if (rs.next()) {
+				// 생성자가 만들어져 있어야 한다.
+				boardDTO = new BoardDTO(rs.getInt("no"), rs.getString("title"), rs.getString("article"),
+						rs.getString("offerer"), rs.getString("writedate"), rs.getString("image_link"),
+						rs.getInt("hit"));
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				// 7. 닫기
+				DBUtil.close(con, pstmt, rs);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return boardDTO;
+		
+	}
+
+	
 
 }
