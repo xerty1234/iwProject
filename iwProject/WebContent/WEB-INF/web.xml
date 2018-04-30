@@ -22,18 +22,19 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   
-<!--   ================= 회원정보 컨트롤러 ============================== -->
-  <servlet>
-  <servlet-name>memberController</servlet-name>
-  <servlet-class>com.iw.member.controller.MemberController</servlet-class>
+ 
+<!--  ============================ 훠원 게시판 서블릿 =========================================-->
+   <servlet>
+    <servlet-name>memberController</servlet-name>
+    <servlet-class>com.iw.member.controller.MemberController</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>memberController</servlet-name>
-  <url-pattern>/member/*</url-pattern>
+    <servlet-name>memberController</servlet-name>
+    <url-pattern>/member/*</url-pattern>
   </servlet-mapping>
   
-  
-  <servlet>
+<!--  ============================ 뉴스 서블릿 =========================================-->
+   <servlet>
     <servlet-name>newsBoardController</servlet-name>
     <servlet-class>com.iw.news.board.controller.BoardController</servlet-class>
     <load-on-startup>2</load-on-startup>
@@ -51,8 +52,10 @@
     <servlet-name>newsMainController</servlet-name>
     <url-pattern>/newsmain/*</url-pattern>
   </servlet-mapping>
-<!--   //정보게시판 -->
-    <servlet>
+  
+  
+<!--  ============================ 정보 게시판 서블릿 =========================================-->
+   <servlet>
     <servlet-name>infoboardController</servlet-name>
     <servlet-class>com.iw.infoboard.controller.BoardController</servlet-class>
     <load-on-startup>2</load-on-startup>
@@ -61,6 +64,20 @@
     <servlet-name>infoboardController</servlet-name>
     <url-pattern>/infoboard/*</url-pattern>
   </servlet-mapping>
+  
+  
+<!--  ============================ 메인 게시판 서블릿 =========================================-->  
+ <servlet>
+    <servlet-name>mainController</servlet-name>
+    <servlet-class>com.iw.main.mainController</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mainController</servlet-name>
+    <url-pattern>/main/*</url-pattern>
+  </servlet-mapping>
+  
+  
   
   
   
@@ -88,5 +105,4 @@
     <error-code>404</error-code>
     <location>/WEB-INF/news/error/404.jsp</location>
   </error-page>
-  
 </web-app>

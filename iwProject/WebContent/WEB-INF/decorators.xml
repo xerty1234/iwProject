@@ -28,6 +28,9 @@
 	<decorator name="/newsboard" page="default_decorator.jsp">
 		<pattern>/newsboard</pattern>
 	</decorator>
+	<decorator name="main" page="default_decorator.jsp">
+		<pattern>/main</pattern>
+	</decorator>
 	
 	
 </decorators>
