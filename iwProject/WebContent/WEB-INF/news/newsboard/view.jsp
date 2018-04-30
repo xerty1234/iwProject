@@ -18,11 +18,11 @@ $(document).ready(function(){
 // 	alert("OK");
 	$("#replyUpdateDiv").hide();
 	// 버튼 이벤트 처리
-	$("#update").click(function(){
+// 	$("#update").click(function(){
 // 		location="update.do?no="+$("#td_no").text();
-		$("#dataForm").attr("action","update.do");
-		$("#dataForm").submit();
-	});
+// 		$("#dataForm").attr("action","update.do");
+// 		$("#dataForm").submit();
+// 	});
 	$("#delete").click(function(){
 		if(confirm("정말 삭제하시겠습니까?"))
 			location="delete.do?no="+$("#td_no").text();
@@ -80,48 +80,28 @@ $(document).ready(function(){
 	<input type="hidden" name="searchKey" value="${param.searchKey }" />
 	<input type="hidden" name="searchWord" value="${param.searchWord }" />
 </form>
+
 <div class="container">
-<h1>게시판 글보기</h1>
-<table class="table">
-<script>
-	
-</script>
-<tbody>
-<!-- 데이터를 출력한다. -->
-	<tr>
-		<th>번호</th>
-		<td id="td_no">${boardDTO.no}</td>
-	</tr>
-	<tr>
-		<th>제목</th>
-		<td>${boardDTO.title}</td>
-	</tr>
-	<tr>
-		<th>내용</th>
-		<td><pre><a src="${boardDTO.imageLink}"></a></pre></td>
-		
-	<tr/>
-	<tr>
-		<th>내용</th>
-		<td><pre>${boardDTO.article}</pre></td>
-	<tr/>
-	<tr>
-		<th>작성자</th>
-		<td>${boardDTO.offerer}</td>
-	</tr>
-	<tr>
-		<th>작성일</th>
-		<td>${boardDTO.writeDate}</td>
-	</tr>
-	<tr>
-		<th>조회수</th>
-		<td>${boardDTO.hit}</td>
-	</tr>
-</tbody>
-<tfoot>
+<h1>뉴스 게시판 글보기</h1>
+
+
+<div class=col-lg-1 id="td_no">${boardDTO.no}</div>
+<div class=col-lg-4 >제목 : ${boardDTO.title}</div>
+<div class=col-lg-2 >제공 : ${boardDTO.offerer}</div>
+<div class=col-lg-3 >작성일 : ${boardDTO.writeDate}</div>
+<div class=col-lg-2 >조회수 : ${boardDTO.hit}</div>
+<br/>
+<br/>
+<div style="float:left; margin: 30px"><img src="${boardDTO.imageLink}" /></div>
+<div style="font-size: 18px; text-align: center">${boardDTO.article}</div>
+
+</div>
+
+<div class="container">
+<table>
+	<tbody>
 	<tr>
 		<td colspan="2">
-			<button id="update" class="btn btn-primary">수정</button>
 			<button id="delete" class="btn btn-danger">삭제</button>
 			<button id="list" class="btn btn-success">리스트</button>
 		</td>
@@ -164,7 +144,7 @@ $(document).ready(function(){
 		</td>
 	</tr>
 	</c:forEach>
-</tfoot>
+</tbody>
 </table>
 </div>
 </body>

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.iw.news.board.dto.BoardDTO;
 import com.iw.news.board.dto.ReplyDTO;
 import com.webjjang.util.Beans;
 import com.webjjang.util.DBUtil;
@@ -87,7 +86,7 @@ public class BoardController extends HttpServlet {
 				System.out.println(jsp);
 				break;
 			// 글수정 폼 - get
-			case "/board/update.do":
+			case "/newsboard/update.do":
 				int no2 = Integer.parseInt(request.getParameter("no"));
 				service = Beans.getService("/newsboard/view.do");//BoardViewService
 				//service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
@@ -102,7 +101,7 @@ public class BoardController extends HttpServlet {
 				break;
 	
 			// 글삭제
-			case "/board/delete.do":
+			case "/newsboard/delete.do":
 				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
 				service = Beans.getService(command);
 				// 글번호를 받아서 삭제 처리를 한다.
