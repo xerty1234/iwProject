@@ -64,7 +64,6 @@ public class NewsBoardController extends HttpServlet {
 				System.out.println(jsp);
 				break;
 			
-			
 			// 글보기 - get
 			case "/newsboard/view.do":
 				int no = Integer.parseInt(request.getParameter("no"));
@@ -82,17 +81,7 @@ public class NewsBoardController extends HttpServlet {
 				System.out.println(jsp);
 				break;
 			
-	
-			// 글삭제
-			case "/newsboard/delete.do":
-				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
-				service = Beans.getService(command);
-				// 글번호를 받아서 삭제 처리를 한다.
-				service.excute(Integer.parseInt(request.getParameter("no")));
-				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = "redirect:list.do";
-				System.out.println(jsp);
-				break;
+		
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp="/WEB-INF/views/error/404.jsp";
@@ -127,41 +116,7 @@ public class NewsBoardController extends HttpServlet {
 		System.out.println(command);
 		try {
 			switch (command) {
-			// 글쓰기 처리
-//			case "/board/write.do":
-//				// 넘어오는 데이터를 BoardDTO에 담는다.
-//				BoardDTO boardDTO = new BoardDTO(
-//						request.getParameter("title"),
-//						request.getParameter("content"),
-//						request.getParameter("writer"));
-//				// 처리할 서비스를 받아온다. - BoardWriteService
-//				service = Beans.getService(command);
-//				System.out.println(service);
-//				service.excute(boardDTO);
-//				jsp = "list.do";
-//				System.out.println(jsp);
-//				break;
-//				
-//			// 글수정 처리
-//			case "/board/update.do":
-//				// 넘어오는 데이터를 BoardDTO에 담는다.
-//				BoardDTO boardDTO2 = new BoardDTO(
-//						Integer.parseInt(request.getParameter("no")),
-//						request.getParameter("title"),
-//						request.getParameter("content"),
-//						request.getParameter("writer"),null,0);
-//				// service - BoardUpdateService
-//				service = Beans.getService(command);
-//				// 실행해서 수정처리
-//				service.excute(boardDTO2);
-//				// 글보기로 이동시키는데 글번호와 함께 이동시킨다.
-//				jsp = "view.do?no="+boardDTO2.getNo()
-//					+"&page="+request.getParameter("page")
-//					+"&rowPerPage="+request.getParameter("rowPerPage")
-//					+"&searchKey="+request.getParameter("searchKey")
-//					+"&searchWord="+request.getParameter("searchWord");
-//				break;
-
+		
 				// 댓글쓰기 처리
 				case "/newsboard/replyWrite.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
@@ -197,7 +152,8 @@ public class NewsBoardController extends HttpServlet {
 					+"&rowPerPage="+request.getParameter("rowPerPage");
 					System.out.println(jsp);
 					break;
-					
+				
+					// 글삭제
 				case "/newsboard/replyDelete.do":
 					// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
 					service = Beans.getService(command);
@@ -209,21 +165,10 @@ public class NewsBoardController extends HttpServlet {
 					break;
 					
 				
-					
-				default:
-					System.out.println("존재하지 않는 자원을 요청");
-					jsp="/WEB-INF/views/error/404.jsp";
-					break;
-				}
-				if(jsp.indexOf("redirect:") == -1) // redirect: 존재하지 않는다.
-					// jsp쪽으로 이동한다.
-					request.getRequestDispatcher(jsp).forward(request, response);
-				else {// redirect: 존재한다.
-					// 앞에 붙는 redirect: 을 없앤다.
-					jsp = jsp.substring("redirect:".length());
-					// uri쪽으로 이동한다.
-					response.sendRedirect(jsp);
-					
+			default:
+				System.out.println("존재하지 않는 자원을 요청");
+				jsp="/WEB-INF/views/error/404.jsp";
+				break;
 			}
 			// uri쪽으로 이동한다.
 			response.sendRedirect(jsp);

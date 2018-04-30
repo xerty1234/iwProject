@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.iw.news.board.dto.ReplyDTO;
 import com.webjjang.util.DBUtil;
-import com.webjjang.util.PageObject2;
 
 public class NewsReplyDAO {
 
