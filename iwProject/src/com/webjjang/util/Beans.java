@@ -92,7 +92,7 @@ public class Beans extends HttpServlet {
 		daoBeans.put("memberDAO", new MemberDAO());
 		daoBeans.put("infoboardDAO", new infoBoardDAO());
 		daoBeans.put("trendboardDAO", new TrendBoardDAO());
-		daoBeans.put("boardReplyDAO", new ReplyDAO());
+		daoBeans.put("ReplyDAO", new ReplyDAO());
 		daoBeans.put("NewsReplyDAO", new NewsReplyDAO() );
 		daoBeans.put("trendboardReplyDAO", new TrendReplyDAO() );
 		
@@ -135,6 +135,8 @@ public class Beans extends HttpServlet {
 					= (ServiceInterface) handlerClass.newInstance();
 					// key : command value : handlerInstance- 생성된 객체
 					// Map에 저장
+					//System.out.println(command);
+					//System.out.println(handlerInstance);
 					beans.put(command, handlerInstance);
 					// 의존성 주입 - 사용하는 프로그램을 넣어준다.(setter, 생성자)
 					// 생성이된 service(handlerInstance)에 필요한 DAO 가져와서 넣는다.

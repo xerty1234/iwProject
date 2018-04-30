@@ -204,11 +204,12 @@ public class BoardController extends HttpServlet {
 				case "/infoboard/replyUpdate.do":
 					// 넘어오는 데이터를 BoardDTO에 담는다.
 					ReplyDTO replyDTO2 = new ReplyDTO(
-							Integer.parseInt(request.getParameter("rno")), 0,
+							Integer.parseInt(request.getParameter("rno")),0,
 							request.getParameter("content"),
 							request.getParameter("writer"), null);
 					System.out.println("BoardController.doGet().replyDTO:"+replyDTO2);
 					// 처리할 서비스를 받아온다. - BoardWriteService
+					
 					service = Beans.getService(command);
 					System.out.println(service);
 					service.excute(replyDTO2);
@@ -217,8 +218,6 @@ public class BoardController extends HttpServlet {
 					+"&rowPerPage="+request.getParameter("rowPerPage");
 					System.out.println(jsp);
 					break;
-					
-				
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp="/WEB-INF/infoboard/error/404.jsp";
