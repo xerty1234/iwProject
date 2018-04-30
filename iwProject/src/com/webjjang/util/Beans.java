@@ -55,8 +55,8 @@ public class Beans extends HttpServlet {
 	public static String memberPre = "/WEB-INF";
 	public static String infopre = "/WEB-INF/info";
 	public static String trendpre = "/WEB-INF/trend";
-	public static String suf = ".jsp";
 	public static String freeper = "/WEB-INF/free";
+	public static String suf = ".jsp";
 	
 	// 정제된 URI 넣으면 foward할 jsp로 만들어주는 메서드
 	public static String getJsp(String uri) {

@@ -10,8 +10,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 <script>
 $(document).ready(function(){
+	$('#table_id').DataTable();
 // 	alert("OK");
     $(".data").click(function(){
 //         $(this).hide();
@@ -36,38 +40,38 @@ $(document).ready(function(){
 <div class="panel panel-primary">
 <div class="panel-heading">
 <h1>자유 게시판</h1>
-<form class="form-inline">
-	<input name="page" value="1" type="hidden" />
-	<input name="rowPerPage" value='${(empty param.rowPerPage)?"10":param.rowPerPage}' type="hidden" />
-  <div class="input-group">
-  	<select class="form-control col-sm-3" name="searchKey" >
-  		<option value="title" ${(param.searchKey == "title")?"selected=\"selected\"":"" } 
-  		>제목</option>
-  		<option value="content"  ${(param.searchKey == "content")?"selected=\"selected\"":"" }
-  		>내용</option>
-  		<option value="writer" ${(param.searchKey =="writer")?"selected=\"selected\"":""}
-  		>작성자</option>
-  		<option value="title,content" ${(param.searchKey =="title,content")?"selected=\"selected\"":""} 
-  		>제목/내용</option>
-  		<option value="title,writer" ${(param.searchKey =="title,writer")?"selected=\"selected\"":""} 
-  		>제목/작성자</option>
-  		<option value="content,writer" ${(param.searchKey =="content,writer")?"selected=\"selected\"":""} 
-  		>내용/작성자</option>
-  		<option value="title,content,writer" ${(param.searchKey =="title,content,writer")?"selected=\"selected\"":""} 
-  		>제목/내용/작성자</option>
-  	</select>
-    <input type="text" class="form-control col-sm-8" placeholder="Search"
-     name="searchWord" value="${param.searchWord }">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div> 
-  </div>
-</form> 
+<!-- <form class="form-inline"> -->
+<!-- 	<input name="page" value="1" type="hidden" /> -->
+<%-- 	<input name="rowPerPage" value='${(empty param.rowPerPage)?"10":param.rowPerPage}' type="hidden" /> --%>
+<!--   <div class="input-group"> -->
+<!--   	<select class="form-control col-sm-3" name="searchKey" > -->
+<%--   		<option value="title" ${(param.searchKey == "title")?"selected=\"selected\"":"" }  --%>
+<!--   		>제목</option> -->
+<%--   		<option value="content"  ${(param.searchKey == "content")?"selected=\"selected\"":"" } --%>
+<!--   		>내용</option> -->
+<%--   		<option value="writer" ${(param.searchKey =="writer")?"selected=\"selected\"":""} --%>
+<!--   		>작성자</option> -->
+<%--   		<option value="title,content" ${(param.searchKey =="title,content")?"selected=\"selected\"":""}  --%>
+<!--   		>제목/내용</option> -->
+<%--   		<option value="title,writer" ${(param.searchKey =="title,writer")?"selected=\"selected\"":""}  --%>
+<!--   		>제목/작성자</option> -->
+<%--   		<option value="content,writer" ${(param.searchKey =="content,writer")?"selected=\"selected\"":""}  --%>
+<!--   		>내용/작성자</option> -->
+<%--   		<option value="title,content,writer" ${(param.searchKey =="title,content,writer")?"selected=\"selected\"":""}  --%>
+<!--   		>제목/내용/작성자</option> -->
+<!--   	</select> -->
+<!--     <input type="text" class="form-control col-sm-8" placeholder="Search" -->
+<%--      name="searchWord" value="${param.searchWord }"> --%>
+<!--     <div class="input-group-btn"> -->
+<!--       <button class="btn btn-default" type="submit"> -->
+<!--         <i class="glyphicon glyphicon-search"></i> -->
+<!--       </button> -->
+<!--     </div>  -->
+<!--   </div> -->
+<!-- </form>  -->
 </div>
 <div class="panel-body">
-<table class="table">
+<table class="table" id="table_id">
 <thead>
 	<tr>
 		<th>번호</th>

@@ -74,7 +74,7 @@ public class FreeController extends HttpServlet {
 				list.add(no);
 				list.add(true); // 조회수 1 증가 시킨다.
 				request.setAttribute("boardDTO", service.excute(list));
-				request.setAttribute("replyList", Beans.getService("/board/replyList.do").excute(no));
+				request.setAttribute("replyList", Beans.getService("/freeboard/replyList.do").excute(no));
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
 				jsp = Beans.free_getJsp(command);
 				System.out.println(jsp);
