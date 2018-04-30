@@ -63,12 +63,8 @@ public class NewsBoardController extends HttpServlet {
 				jsp = Beans.getJsp(command);
 				System.out.println(jsp);
 				break;
-			// 글쓰기 폼 - get
-			case "/board/write.do":
-				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.getJsp(command);
-				System.out.println(jsp);
-				break;
+			
+			
 			// 글보기 - get
 			case "/newsboard/view.do":
 				int no = Integer.parseInt(request.getParameter("no"));
@@ -85,23 +81,10 @@ public class NewsBoardController extends HttpServlet {
 				jsp = Beans.getJsp(command);
 				System.out.println(jsp);
 				break;
-			// 글수정 폼 - get
-			case "/board/update.do":
-				int no2 = Integer.parseInt(request.getParameter("no"));
-				service = Beans.getService("/board/view.do");//BoardViewService
-				//service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
-				//ArryaList를 넘겨야 - 0:no, 1:isViews(boolean)
-				ArrayList<Object> list2 = new ArrayList<>();
-				list2.add(no2);
-				list2.add(false); // 조회수 1증가를 시키지 않는다.
-				request.setAttribute("boardDTO", service.excute(list2));				// viewService에서
-				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = Beans.getJsp(command);
-				System.out.println(jsp);
-				break;
+			
 	
 			// 글삭제
-			case "/board/delete.do":
+			case "/newsboard/delete.do":
 				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
 				service = Beans.getService(command);
 				// 글번호를 받아서 삭제 처리를 한다.
