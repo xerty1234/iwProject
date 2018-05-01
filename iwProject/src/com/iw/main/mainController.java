@@ -54,12 +54,10 @@ public class mainController extends HttpServlet
 				infoBoardDAO info = new infoBoardDAO();
 				infoBoardDTO infoDTO = info.getMainHighlights();
 				TrendBoardDAO trend = new TrendBoardDAO();
-				TrendBoardDTO trendDTO = trend.getMainHighlights();
 				
 				
 				request.setAttribute("news", newsDTO);
 				request.setAttribute("info", infoDTO);
-				request.setAttribute("trend", trendDTO);
 				
 				jsp = Beans.Member_getJsp(command);
 				
