@@ -120,7 +120,9 @@ $(document).ready(function(){
 			<button id="update" class="btn btn-primary">수정</button>
 			<button id="delete" class="btn btn-danger">삭제</button>
 			<button id="list" class="btn btn-success">리스트</button>
-			<button id="liked" class="btn btn-info">좋아요</button>
+			<button id="liked" class="btn btn-info" href="#" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-thumbs-up"></span> Like
+			</button>
 		</td>
 	</tr>
 	<!-- 댓글 쓰기 폼 -->
