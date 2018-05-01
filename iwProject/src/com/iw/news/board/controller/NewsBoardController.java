@@ -92,6 +92,21 @@ public class NewsBoardController extends HttpServlet {
 				System.out.println(jsp);
 				break;
 				
+			case "/newsboard/replyDelete.do":
+				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
+				service = Beans.getService(command);
+				// 글번호를 받아서 삭제 처리를 한다.
+				System.out.println(request.getParameter("rno") );
+				System.out.println(request.getParameter("no"));
+				
+				service.excute(Integer.parseInt(request.getParameter("rno")));
+				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
+				jsp = "view.do?no="+request.getParameter("no");
+				request.setAttribute("no", request.getParameter("no"));
+				System.out.println(jsp);
+				break;
+
+				
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp = "/WEB-INF/views/error/404.jsp";
@@ -157,22 +172,22 @@ public class NewsBoardController extends HttpServlet {
 				service = Beans.getService(command);
 				System.out.println(service);
 				service.excute(replyDTO2);
-				jsp = "view.do?no=" + request.getParameter("no") + "&page=" + request.getParameter("page")
-						+ "&rowPerPage=" + request.getParameter("rowPerPage");
+				
 				System.out.println(jsp);
 				break;
-
-			// 글삭제
+				
+				
 			case "/newsboard/replyDelete.do":
 				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
 				service = Beans.getService(command);
 				// 글번호를 받아서 삭제 처리를 한다.
+				System.out.println(request.getParameter("rno"));
 				service.excute(Integer.parseInt(request.getParameter("rno")));
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-				jsp = "redirect:list.do";
+				jsp = "view.do?no="+request.getParameter("no");
 				System.out.println(jsp);
 				break;
-
+				
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp = "/WEB-INF/views/error/404.jsp";

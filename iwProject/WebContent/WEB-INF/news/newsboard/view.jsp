@@ -34,9 +34,15 @@ $(document).ready(function(){
 		$("#dataForm").submit();
 	});
 	
-	$("#repDeleteBtn").click(function(){
-		if(confirm("정말 삭제하시겠습니까?"))
-			location="replyDelete.do?no="+$("#rno").text();
+	$("#replyDeleteBtn").click(function(){
+// 		alert("삭제?");
+		if(confirm("정말 삭제하시겠습니까?")){
+// 			$("#replyForm input[name='rno']").attr("disabled","");
+// 			$("#replyForm input[name='rno']").val($(tdObj).find("#rno").text());
+// 			$("#dataForm").attr("action","newsboard/replyDelete.do");
+// 			$("#dataForm").submit();
+			location="replyDelete.do?rno="+$("#rno").text()+"&no="+${boardDTO.no} ;
+		}
 	});
 	// 댓글에 대한 이벤트 처리
 	$("#replyWriteBtn").click(function(){
@@ -68,7 +74,7 @@ $(document).ready(function(){
 		$("#replyForm input[name='rno']").val("");
 		$("#replyForm textarea[name='content']").val("");
 		$("#replyForm input[name='writer']").val("");
-		$("#replyForm input[name='rno']").attr("disabled","disabled");
+		$("#replyForm input[name='rno']").attr("disabled","");
 		// 버튼을 바꿔준다.
 		$("#replyWriteDiv, #replyUpdateDiv").toggle(); // hide <-> show
 	});
@@ -146,7 +152,7 @@ $(document).ready(function(){
 				<span id="writer">${replyDTO.writer }</span>)
 				<span>
 					<button class="repUpdateBtn">수정</button>
-					<button class="repDeleteBtn">삭제:(공사중)</button>
+					<button class="repDeleteBtn" id="replyDeleteBtn">삭제:(공사중)</button>
 				</span>
 		</td>
 	</tr>
