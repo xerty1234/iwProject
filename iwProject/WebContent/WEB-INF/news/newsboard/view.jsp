@@ -24,8 +24,9 @@ $(document).ready(function(){
 // 		$("#dataForm").submit();
 // 	});
 	$("#delete").click(function(){
-		if(confirm("정말 삭제하시겠습니까?"))
-			location="delete.do?no="+$("#td_no").text();
+		if(confirm("정말 삭제하시겠습니까?")){
+			location="delete.do?no="+$("#td_no").text();			
+		}
 	});
 	$("#list").click(function(){
 // 		location="list.do";
@@ -152,7 +153,7 @@ $(document).ready(function(){
 				<span id="writer">${replyDTO.writer }</span>)
 				<span>
 					<button class="repUpdateBtn">수정</button>
-					<button class="repDeleteBtn" id="replyDeleteBtn">삭제:(공사중)</button>
+					<button class="repDeleteBtn" id="replyDeleteBtn">삭제</button>
 				</span>
 		</td>
 	</tr>
