@@ -64,6 +64,7 @@ text-overflow: ellipsis;
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
 			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
@@ -149,10 +150,10 @@ text-overflow: ellipsis;
 
 		<!-- Three columns of text below the carousel -->
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<img class="img-circle"
 					src="http://www.boannews.com/media/upFiles/937042(500).jpg"
-					alt="Generic placeholder image" width="140" height="140">
+					alt="Generic placeholder image" width="100" height="100">
 				<h2>정보게시판</h2>
 				<p>주식 정보를 서로 주고 받는 게시판 </p>
 				<p>
@@ -161,10 +162,10 @@ text-overflow: ellipsis;
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<img class="img-circle"
 					src="http://outstanding.kr/wp-content/uploads/2018/04/%EC%9D%B4%EC%8A%88%EB%89%B4%EC%8A%A4-400x286.png"
-					alt="Generic placeholder image" width="140" height="140">
+					alt="Generic placeholder image" width="100" height="100">
 				<h2>뉴스게시판</h2>
 				<p>주식 뉴스등을 모아둔 게시판 
 				</p>
@@ -174,10 +175,10 @@ text-overflow: ellipsis;
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<img class="img-circle"
-					src="http://blogfiles13.naver.net/MjAxODAzMjZfMzMg/MDAxNTIyMDMzMTY0ODMy.5XPjD9FSkowInJSmxRfE5L0EjPAw3PPI-b9p-u8KCwQg.llBIQrLIdYOsMvnqK9FzuQUCnO9TxuYmrUH3sShqEEQg.PNG.taiziboys/2018-02-22_22%3B21%3B21.PNG"
-					alt="Generic placeholder image" width="140" height="140">
+					src="http://imgnews.naver.com/image/030/2017/09/28/0002645258_001_20170928181123707.jpg"
+					alt="Generic placeholder image" width="100" height="100">
 				<h2>주가게시판</h2>
 				<p>주가정보, 등락률 등을 확인하는 게시판</p>
 				<p>
@@ -186,10 +187,10 @@ text-overflow: ellipsis;
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<img class="img-circle"
 					src="http://mblogthumb2.phinf.naver.net/MjAxNzA0MjRfMjM4/MDAxNDkzMDE0MTIxNzU5.5BPRxmyT8AJ7ziUt-0FacLgl57QXWy7fG_7j80wSMwQg.hY-UTpF5IVyHSFSuyyR_kOBQL95XfQxxSRsaj5Lns9Mg.JPEG.buy2life/%EC%9E%90%EC%9C%A0.jpg?type=w800"
-					alt="Generic placeholder image" width="140" height="140">
+					alt="Generic placeholder image" width="100" height="100">
 				<h2>자유게시판</h2>
 				<p>자유롭게 게시물을 올려놓는 게시판 </p>
 				<p>
