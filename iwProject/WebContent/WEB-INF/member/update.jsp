@@ -1,7 +1,7 @@
 
 <%@page import="com.iw.member.dto.MemberDTO"%>
 <%@page import="com.iw.member.service.MemberViewService"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
@@ -42,22 +42,23 @@
 					<form method="post">
 						<table>
 							<tbody>
-
 								<!-- 데이터를 입력하는 -->
+								<c:if test="${sessionScope.grade ne '관리자'}"> 
 								<tr>
 									<th>아이디</th>
 									<td><input name="id" size="60" maxlength="100"
-										value="${boardDTO.id }" class="form-control" /></td>
+										value="${memberDTO.id }" class="form-control" /></td>
 								</tr>
+								</c:if>
 								<tr>
 									<th>비밀번호</th>
 									<td><textarea cols="60" name="password"
-											class="form-control">${boardDTO.passwrod }</textarea></td>
+											class="form-control">${memberDTO.password }</textarea></td>
 								<tr />
 								<tr>
 									<th>닉네임</th>
 									<td><input name="nickname" size="10" maxlength="10"
-										class="form-control" value="${boardDTO.nickname}" /></td>
+										class="form-control" value="${memberDTO.nickname}" /></td>
 								</tr>
 								<tr>
 									<th>등급</th>

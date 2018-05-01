@@ -81,19 +81,21 @@ public class MemberController extends HttpServlet
 				request.setAttribute("memberDTO", service.excute(temp));
 				request.getSession().invalidate();
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
-
 				jsp = "redirect:" + request.getContextPath() + "/member/view.do";
 				System.out.println(jsp);
 				break;
 			case "/member/masterpage.do":
 				System.out.println("do_get()");
 				int no4 = Integer.parseInt(request.getParameter("no"));
-				service = Beans.getService(command);
+				service = Beans.getService("/member/view.do");
 				request.setAttribute("memberDTO",service.excute(no4));
 				jsp = Beans.Member_getJsp(command);
 				System.out.println(jsp);
 				break;
 			case "/member/update.do":
+				int no2 = Integer.parseInt(request.getParameter("no"));
+				service = Beans.getService("/member/view.do");
+				request.setAttribute("memberDTO", service.excute(no2));
 				jsp = Beans.Member_getJsp(command);
 				System.out.println(jsp);
 				break;
@@ -193,13 +195,26 @@ public class MemberController extends HttpServlet
 			// 글수정 처리
 			case "/member/update.do":
 				// 넘어오는 데이터를 BoardDTO에 담는다.
+				//HttpSession session2 = request.getSession();
+				//int no = (int) session2.getAttribute("no");
+				int no2 = Integer.parseInt(request.getParameter("no"));
+				service = Beans.getService("/member/view.do");
+				
+				MemberDTO boardDTO2 = new MemberDTO();
+				boardDTO2 = (MemberDTO) service.excute(no2);
 				HttpSession session2 = request.getSession();
-				int no = (int) session2.getAttribute("no");
-				MemberDTO boardDTO2 = new MemberDTO(null, request.getParameter("password"),
-						request.getParameter("nickname"), request.getParameter("grade"));
-
+				String temp = (String)session2.getAttribute("grade");
+				if (!temp.equals("관리자"))
+				{
+					boardDTO2.setPassword(request.getParameter("id"));
+				}
+				
+				boardDTO2.setPassword(request.getParameter("password"));
+				boardDTO2.setNickname(request.getParameter("nickname"));
+				boardDTO2.setGrade(request.getParameter("grade"));
 				// service - BoardUpdateService
-				boardDTO2.setNo(no);
+				//boardDTO2.setNo(no);
+				System.out.println(boardDTO2);
 				service = Beans.getService(command);
 				// 실행해서 수정처리
 				service.excute(boardDTO2);
@@ -211,7 +226,7 @@ public class MemberController extends HttpServlet
 				service = Beans.getService(command);
 				MemberDTO obj = new MemberDTO(request.getParameter("id"), request.getParameter("password"));
 				HttpSession session = request.getSession();
-				MemberDTO memberDTO2 = (MemberDTO) service.excute(obj);
+				MemberDTO memberDTO2 = (MemberDTO)service.excute(obj);
 
 				if (memberDTO2 != null)
 				{

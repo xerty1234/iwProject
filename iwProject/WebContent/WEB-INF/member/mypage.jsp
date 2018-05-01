@@ -25,8 +25,10 @@
 	$(document).ready(function() {
 		
 		$("#update").click(function() {
-			location = "update.do?no=" + $("#td_no").text();
-		});
+				var no = ${memberDTO.no}
+				 alert(no);
+				location = "update.do?no="+no;
+			});
 		$("#delete").click(function() {
 			if (confirm("정말 삭제하시겠습니까?"))
 				location = "delete.do";
@@ -38,6 +40,10 @@
 </script>
 </head>
 <body>
+<form id="dataForm">
+	<input type="hidden" name="no" value="${memberDTO.no }" />
+</form>
+
 	<div class="container">
 		<h1>마이페이지</h1>
 		<table class="table">

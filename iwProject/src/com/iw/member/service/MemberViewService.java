@@ -19,8 +19,9 @@ public class MemberViewService implements ServiceInterface{
 	public MemberDTO excute(Object objs){
 		System.out.println("BoardViewService.process()");
 		@SuppressWarnings("unchecked")
-		ArrayList<Object> list = (ArrayList<Object>) objs;
-		int no = (int) list.get(0);
+		//ArrayList<Object> list = (ArrayList<Object>) objs;
+		//int no = (int) list.get(0);
+		int no = (int)objs;
 		//boolean isView = (boolean) list.get(1);
 		MemberDTO boardDTO = null;
 		// list에 데이터를 가져와서 채우는 프로그램 작성

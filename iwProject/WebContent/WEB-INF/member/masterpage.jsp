@@ -4,6 +4,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	System.out.println("default_decorator.jsp:" + request.getContextPath());
 	pageContext.setAttribute("absUri", request.getContextPath());
@@ -25,7 +26,9 @@
 	$(document).ready(function() {
 		
 		$("#update").click(function() {
-			location = "update.do?no=" + $("#td_no").text();
+			 var no = ${memberDTO.no};
+			 alert(no);
+			location = "update.do?no="+ no;
 		});
 		$("#delete").click(function() {
 			if (confirm("정말 삭제하시겠습니까?"))
@@ -39,14 +42,16 @@
 </head>
 <body>
 	<div class="container">
-		<h1>회워관리페이지</h1>
+		<h1>회원관리페이지</h1>
 		<table class="table">
 			<tbody>
 				<!-- 데이터를 출력한다. -->
+				<c:if test="${sessionScope.grade ne '관리자'}"> 
 				<tr>
 					<th>아이디</th>
-					<td>${memberDTO.id}</td>
+					<td id="td_no">${memberDTO.id}</td>
 				</tr>
+				</c:if>
 				<tr>
 					<th>비밀번호</th>
 					<td><pre>${memberDTO.password}</pre></td>

@@ -4,6 +4,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,11 @@
 		// 	alert("OK");
 		// 버튼 이벤트 처리
 		$("#update").click(function() {
-			location = "update.do?no=" + $("#td_no").text();
+			//$("#dataForm").attr("action","update.do");
+			//$("#dataForm").submit();
+			 var no = $(this).find("#td_no").text()
+			 alert(no);
+			location = "update.do?no=" + no;
 		});
 		$("#delete").click(function() {
 			if (confirm("정말 삭제하시겠습니까?"))
@@ -35,6 +40,10 @@
 </script>
 </head>
 <body>
+<form id="dataForm">
+	<input type="hidden" name="no" value="${memberDTO.no }" />
+</form>
+
 	<div class="container">
 		<h1>게시판 글보기</h1>
 		<table class="table">

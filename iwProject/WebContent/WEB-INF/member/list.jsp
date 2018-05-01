@@ -20,9 +20,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+  
+  
 <script>
 $(document).ready(function(){
-// 	alert("OK");
+	 $('#table_id').DataTable();
 
 	$(".data").click(function() {
  		var no = $(this).find("td:first").text();
@@ -41,7 +46,7 @@ $(document).ready(function(){
 <h1>회원게시판  리스트</h1>
 </div>
 <div class="panel-body">
-<table class="table">
+<table class="table" id="table_id">
 <thead>
 	<tr>
 		<th>번호</th>
