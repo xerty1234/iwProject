@@ -1,16 +1,17 @@
 package com.iw.free.service;
 
+import com.iw.free.dao.FReplyDAO;
 import com.iw.free.dao.FreeDAO;
 import com.webjjang.util.ServiceInterface;
 
 
 public class FReplyDeleteService implements ServiceInterface{
 	
-	private FreeDAO freeDAO;
+	private FReplyDAO freeDAO;
 	
 	@Override
 	public void setDAO(Object obj) {
-		this.freeDAO = (FreeDAO) obj;
+		this.freeDAO = (FReplyDAO) obj;
 	}
 	
 	public Integer excute(Object no){
