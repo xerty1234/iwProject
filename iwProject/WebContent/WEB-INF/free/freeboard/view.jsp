@@ -27,6 +27,10 @@ $(document).ready(function(){
 		if(confirm("정말 삭제하시겠습니까?"))
 			location="delete.do?no="+$("#td_no").text();
 	});
+	$("#replyDeleteBtn").click(function(){
+		if(confirm("정말 삭제하시겠습니까?"))
+			location="replyDelete.do?rno="+$("#rno").text()+"&no="+${boardDTO.no};
+	});
 	$("#list").click(function(){
 // 		location="list.do";
 		$("#dataForm input[name='no']").attr("disabled","disabled")
@@ -150,8 +154,8 @@ $(document).ready(function(){
 				(<span>${replyDTO.writeDate } - </span>
 				<span id="writer">${replyDTO.writer }</span>)
 				<span>
-					<button class="repUpdateBtn">수정</button>
-					<button class="repDeleteBtn">삭제</button>
+					<button class="repUpdateBtn" >수정</button>
+					<button class="repDeleteBtn" id="replyDeleteBtn">삭제</button>
 				</span>
 		</td>
 	</tr>

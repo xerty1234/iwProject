@@ -82,7 +82,7 @@ public class FreeController extends HttpServlet {
 			// 글수정 폼 - get
 			case "/freeboard/update.do":
 				int no2 = Integer.parseInt(request.getParameter("no"));
-				service = Beans.getService("/board/view.do");// BoardViewService
+				service = Beans.getService("/freeboard/view.do");// BoardViewService
 				// service를 실행해서 DB에서 BoardDTO를 가져와서 request에 담는다.
 				// ArryaList를 넘겨야 - 0:no, 1:isViews(boolean)
 				ArrayList<Object> list2 = new ArrayList<>();
@@ -103,6 +103,20 @@ public class FreeController extends HttpServlet {
 				jsp = "redirect:list.do";
 				System.out.println(jsp);
 				break;
+				
+			case "/freeboard/replyDelete.do":
+				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
+				service = Beans.getService(command);
+				// 글번호를 받아서 삭제 처리를 한다.
+				System.out.println(request.getParameter("rno"));
+				service.excute(Integer.parseInt(request.getParameter("rno")));
+				request.setAttribute("no", request.getParameter("no"));
+				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
+				jsp = "view.do";
+				System.out.println(jsp);
+				break;
+				
+				
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp = "/WEB-INF/views/error/404.jsp";
