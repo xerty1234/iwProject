@@ -109,7 +109,8 @@ public class MemberController extends HttpServlet
 				{
 					int no3 = (int) session3.getAttribute("no");
 					service.excute(no3);
-				} else
+				}
+				else
 				{
 					service.excute(Integer.parseInt(request.getParameter("no")));
 				}
