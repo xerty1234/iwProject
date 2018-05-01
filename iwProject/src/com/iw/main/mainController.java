@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.iw.free.dao.FreeDAO;
+import com.iw.free.dto.FreeDTO;
 import com.iw.infoboard.dao.infoBoardDAO;
 import com.iw.infoboard.dto.infoBoardDTO;
 import com.iw.member.dto.MemberDTO;
@@ -53,11 +55,14 @@ public class mainController extends HttpServlet
 				com.iw.news.board.dto.BoardDTO  newsDTO = news.getMainHighlights();
 				infoBoardDAO info = new infoBoardDAO();
 				infoBoardDTO infoDTO = info.getMainHighlights();
-				TrendBoardDAO trend = new TrendBoardDAO();
+				FreeDAO free = new FreeDAO();
+				
+				FreeDTO freeDTO = free.getMainHighlights();
 				
 				
 				request.setAttribute("news", newsDTO);
 				request.setAttribute("info", infoDTO);
+				request.setAttribute("free", freeDTO);
 				
 				jsp = Beans.Member_getJsp(command);
 				

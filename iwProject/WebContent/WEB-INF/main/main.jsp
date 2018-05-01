@@ -18,7 +18,7 @@
 
 <link rel="icon" href="../../favicon.ico">
 
-<title>Carousel Template for Bootstrap</title>
+<title>게시판</title>
 
 <!-- Bootstrap core CSS -->
 <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -210,7 +210,7 @@ text-overflow: ellipsis;
 		<div class="row featurette">
 			<div class="col-md-7">
 				<h2 class="featurette-heading">
-					${news.title } 
+				<span class="text-muted">뉴스게시판 핫이슈.</span><br/>	${news.title } 
 				</h2>
 				<p class="ellipsis">${news.article }</p>
 			</div>
@@ -225,7 +225,7 @@ text-overflow: ellipsis;
 		<div class="row featurette">
 			<div class="col-md-7 col-md-push-5">
 				<h2 class="featurette-heading">
-					${info.title } 
+				<span class="text-muted">정보게시판 핫이슈.</span><br/>	${info.title } 
 				</h2>
 				<p>${info.content }</p>
 			</div>
@@ -240,16 +240,14 @@ text-overflow: ellipsis;
 		<div class="row featurette">
 			<div class="col-md-7">
 				<h2 class="featurette-heading">
-					And lastly, this one. <span class="text-muted">Checkmate.</span>
+				<span class="text-muted">자유게시판 핫이슈.</span><br/>	${free.title }  
 				</h2>
-				<p class="lead">Donec ullamcorper nulla non metus auctor
-					fringilla. Vestibulum id ligula porta felis euismod semper.
-					Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-					Fusce dapibus, tellus ac cursus commodo.</p>
+				<p class="lead">${free.content }</p>
 			</div>
 			<div class="col-md-5">
 				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+					data-src="holder.js/500x500/auto" alt="Generic placeholder image"
+					src="http://cfile23.uf.tistory.com/image/12426E3650283963054303">
 			</div>
 		</div>
 
