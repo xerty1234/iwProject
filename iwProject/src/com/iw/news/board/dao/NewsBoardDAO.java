@@ -47,7 +47,6 @@ public class NewsBoardDAO {
 					pstmt.setString(4, boardAr.get(i).getWriteDate());
 					pstmt.setString(5, boardAr.get(i).getImageLink());
 					
-
 					pstmt.executeUpdate();
 				}
 
