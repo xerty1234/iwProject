@@ -108,11 +108,16 @@ article {
 							<li><a href="../member/logout.do"> <span
 									class="glyphicon glyphicon-log-out"> </span>로그아웃
 							</a></li>
-							
+							<c:if test="${sessionScope.grade eq '관리자'}"> 
+							<li><a href="../member/list.do"> <span
+									class="glyphicons glyphicons-notes-2"></span>관리자페이지
+									</a></li>
+ 							</c:if> 
 							<li><a href="../member/mypage.do"> <span
 									class="glyphicons glyphicons-notes-2"></span>마이페이지
 							</a></li>
 						</c:if>
+						
 
 					</ul>
 				</div>

@@ -64,10 +64,9 @@ public class MemberController extends HttpServlet
 				jsp = Beans.Member_getJsp(command);
 				System.out.println(jsp);
 				break;
-
 			case "/member/logout.do":
 				request.getSession().invalidate();
-				jsp = "/main/main.do";
+				jsp = "redirect:" + request.getContextPath() + "/main/main.do";
 				break;
 			// 글쓰기
 			case "/member/view.do":
@@ -83,7 +82,14 @@ public class MemberController extends HttpServlet
 				request.getSession().invalidate();
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
 
-				jsp = "redirect:" + request.getContextPath() + "/board/view.do";
+				jsp = "redirect:" + request.getContextPath() + "/member/view.do";
+				System.out.println(jsp);
+				break;
+			case "/member/masterpage.do":
+				System.out.println("do_get()");
+				int no4 = Integer.parseInt(request.getParameter("no"));
+				service = Beans.getService(command);
+				request.setAttribute("memberDTO",service.excute(no4));
 				jsp = Beans.Member_getJsp(command);
 				System.out.println(jsp);
 				break;
@@ -105,8 +111,11 @@ public class MemberController extends HttpServlet
 				{
 					service.excute(Integer.parseInt(request.getParameter("no")));
 				}
-
-				jsp = request.getContextPath() + "/main/main.do";
+				request.getSession().invalidate();
+				//jsp = request.getContextPath() + "/main/main.jsp";
+				jsp = "redirect:" + request.getContextPath() + "/main/main.do";
+				//jsp = "/main/main.do";
+				//jsp = Beans.Member_getJsp(command);
 				System.out.println(jsp);
 				break;
 			case "/member/mypage.do":
@@ -131,7 +140,7 @@ public class MemberController extends HttpServlet
 			if (jsp.indexOf("redirect:") == -1)
 			{// redirect: 존재하지 않는다.
 				// jsp쪽으로 이동한다.
-				System.out.println("forward 쪽");
+				System.out.println(jsp);
 				request.getRequestDispatcher(jsp).forward(request, response);
 			} else
 			{// redirect: 존재한다.
@@ -209,6 +218,7 @@ public class MemberController extends HttpServlet
 					session.setAttribute("id", memberDTO2.getId());
 					session.setAttribute("nickname", memberDTO2.getNickname());
 					session.setAttribute("no", memberDTO2.getNo());
+					session.setAttribute("grade", memberDTO2.getGrade());
 
 					jsp = request.getContextPath() + "/main/main.do";
 				} else
@@ -216,24 +226,25 @@ public class MemberController extends HttpServlet
 					jsp = request.getContextPath() + "/member/Error.do";
 				}
 				break;
-			case "/member/delete.do":
-				HttpSession session3 = request.getSession();
-				service = Beans.getService(command);
-				// 처리를해서 DB에 있는 데이터를 바아와서 request에 담아둔다.
-				// int no3 = (int)session3.getAttribute("no");
-
-				if (request.getParameter("no") == null)
-				{
-					int no3 = (int) session3.getAttribute("no");
-					service.excute(no3);
-				} else
-				{
-					service.excute(Integer.parseInt(request.getParameter("no")));
-				}
-
-				jsp = request.getContextPath() + "/main/main.do";
-				System.out.println(jsp);
-				break;
+//			case "/member/delete.do":
+//				HttpSession session3 = request.getSession();
+//				service = Beans.getService(command);
+//				// 처리를해서 DB에 있는 데이터를 바아와서 request에 담아둔다.
+//				// int no3 = (int)session3.getAttribute("no");
+//
+//				if (request.getParameter("no") == null)
+//				{
+//					int no3 = (int) session3.getAttribute("no");
+//					service.excute(no3);
+//				} else
+//				{
+//					service.excute(Integer.parseInt(request.getParameter("no")));
+//				}
+//
+//				jsp = request.getContextPath() + "/main/main.do";
+//				System.out.println(jsp);
+//				break;
+				
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp = "/WEB-INF/views/error/404.jsp";

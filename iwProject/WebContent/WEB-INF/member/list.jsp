@@ -24,12 +24,10 @@
 $(document).ready(function(){
 // 	alert("OK");
 
-    $("#write").click(function(){
-    	var no = 2;
-    	location = "join.do";
-    });
-	$("#update").click(function() {
-		location = "${absUri}/member/update.do?no=" + $("#td_no").text();
+	$(".data").click(function() {
+ 		var no = $(this).find("td:first").text();
+		alert(no);
+ 		location = "${absUri}/member/masterpage.do?no=" + no;
 	});
 });
 </script>
@@ -55,7 +53,7 @@ $(document).ready(function(){
 <tbody>
 <!-- 데이터를 출력하는 반복 처리 -->
 <c:forEach items="${list }" var="memberDTO">
-	<tr class="data">
+	<tr class="data" id="data">
 		<td>${memberDTO.no }</td>
 		<td>${memberDTO.id }</td>
 		<td>${memberDTO.nickname }</td>
@@ -66,9 +64,6 @@ $(document).ready(function(){
 <tfoot>
 	<tr>
 		
-		<td colspan="1">
-			<button id="write" class="btn btn-primary">회원가입</button>
-		</td>
 	</tr>
 </tfoot>
 </table>
