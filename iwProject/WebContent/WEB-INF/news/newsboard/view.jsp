@@ -116,7 +116,7 @@ $(document).ready(function(){
 	<tbody>
 	<tr>
 		<td colspan="2">
-			<button id="delete" class="btn btn-danger">삭제:(공사중)</button>
+			<button id="delete" class="btn btn-danger">삭제</button>
 			<button id="list" class="btn btn-success">리스트</button>
 		</td>
 	</tr>
