@@ -101,7 +101,7 @@ text-overflow: ellipsis;
 			</div>
 			<div class="item">
 				<img class="third-slide"
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2rrQs-4G4PJAOMQaj0LcT5_GmoMwZYldXI_Z-dUu2X2OeHBQi"
+					src="http://imgnews.naver.com/image/5093/2016/01/19/news_1453169351_812492_main1_99_20160119112003.jpg"
 					alt="Third slide" style="width:20%" style="h">
 				<div class="container">
 					<div class="carousel-caption">
@@ -116,7 +116,7 @@ text-overflow: ellipsis;
 			</div>
 			<div class="item">
 				<img class="fourth-slide"
-					src="http://imgnews.naver.com/image/030/2017/09/28/0002645258_001_20170928181123707.jpg"
+					src="http://imgnews.naver.com/image/5399/2018/04/30/0000004422_001_20180430093230940.jpg"
 					alt="Fourth slide" style="width:20%;">
 				<div class="container">
 					<div class="carousel-caption">

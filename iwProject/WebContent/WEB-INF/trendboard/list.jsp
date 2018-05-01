@@ -36,10 +36,10 @@ $(document).ready(function(){
 </head>
 <body>
 
-
-   <iframe src="http://www.everdevel.com" style="width:90%" height="500" scrolling="auto">
-    </iframe>
-
+<p align="middle">
+   <iframe src="http://127.0.0.1:7776/" style="width:70%" height="600" scrolling="no" align="middle" frameborder="0">
+   </iframe>
+</p>
 
 
 <div class="container">
@@ -55,10 +55,10 @@ $(document).ready(function(){
 <thead>
 	<tr>
 		<th>종목명</th>
-		<th>현제가</th>
+		<th>현재가</th>
 		<th>전일비</th>
 		<th>등락률</th>
-		<th>시가충액</th>
+		<th>시가총액</th>
 		<th>상장주식수</th>
 		<th>외국인비율</th>
 	</tr>
