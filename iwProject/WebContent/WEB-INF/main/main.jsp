@@ -170,7 +170,7 @@ text-overflow: ellipsis;
 				<p>주식 뉴스등을 모아둔 게시판 
 				</p>
 				<p>
-					<a class="btn btn-default" href="${absUri }/infoboard/list.do" role="button">뉴스게시판
+					<a class="btn btn-default" href="${absUri }/newsboard/list.do" role="button">뉴스게시판
 						&raquo;</a>
 				</p>
 			</div>
