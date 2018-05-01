@@ -65,7 +65,7 @@ public class MemberController extends HttpServlet {
 				
 			case"/member/logout.do":
 				request.getSession().invalidate();
-				jsp = "/member/list.do";
+				jsp = "/main/main.do";
 				break;
 			// 글쓰기
 			case "/member/view.do":
@@ -76,6 +76,7 @@ public class MemberController extends HttpServlet {
 				ArrayList<Object> temp = new ArrayList<>();
 				temp.add(no);
 				temp.add(Boolean.TRUE);
+				
 				request.setAttribute("memberDTO", service.excute(temp));
 				request.getSession().invalidate();
 				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
@@ -85,20 +86,7 @@ public class MemberController extends HttpServlet {
 				System.out.println(jsp);
 				break;
 			case "/member/update.do":
-				MemberDTO boardDTO2 = new MemberDTO
-				(
-					Integer.parseInt(request.getParameter("no")),
-					request.getParameter("id"),
-					request.getParameter("password"),
-					request.getParameter("nickname"),
-					request.getParameter("writedate"),
-					null,request.getParameter("grade")
-				);
-				service = Beans.getService(command);
-				
-				service.excute(boardDTO2);
-				jsp = "view.do?no="+ boardDTO2.getNo();
-				
+				jsp = Beans.Member_getJsp(command);
 				System.out.println(jsp);
 				break;
 			case "member/delete.do":
@@ -108,7 +96,19 @@ public class MemberController extends HttpServlet {
 				jsp = "list.do";
 				System.out.println(jsp);
 				break;
-
+			case "/member/mypage.do":
+				HttpSession session = request.getSession();
+				service = Beans.getService(command);
+				if (session.getAttribute("id")!=null)
+				{
+					MemberDTO memberDTO = new MemberDTO();
+					memberDTO = (MemberDTO)service.excute(session.getAttribute("id"));
+					request.setAttribute("memberDTO", service.excute(session.getAttribute("id")));
+					System.out.println(memberDTO);
+				}
+				jsp = Beans.Member_getJsp(command);
+				System.out.println(jsp);
+				break;
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp = "/WEB-INF/views/error/404.jsp";
@@ -169,7 +169,7 @@ public class MemberController extends HttpServlet {
 			case "/board/update.do":
 				// 넘어오는 데이터를 BoardDTO에 담는다.
 				MemberDTO boardDTO2 = new MemberDTO(
-						request.getParameter("id"),
+						null,
 						request.getParameter("password"),
 						request.getParameter("nickname"),
 						request.getParameter("grade")
@@ -196,7 +196,7 @@ public class MemberController extends HttpServlet {
 				{
 				session.setAttribute("id",memberDTO2.getId() );
 				session.setAttribute("nickname", memberDTO2.getNickname());
-				jsp = request.getContextPath()+"/member/list.do";
+				jsp = request.getContextPath()+"/main/main.do";
 				}
 				else
 				{

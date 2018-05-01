@@ -34,6 +34,9 @@
 	<decorator name="/freeboard" page="default_decorator.jsp">
 		<pattern>/freeboard</pattern>
 	</decorator>
+	<decorator name="trendboard" page="default_decorator.jsp">
+		<pattern>/trendboard</pattern>
+	</decorator>
 	
 	
 </decorators>

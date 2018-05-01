@@ -91,6 +91,7 @@ article {
 						<li><a href="${absUri }/infoboard/list.do">정보게시판</a></li>
 						<li><a href="${absUri }/newsboard/list.do">뉴스게시판</a></li>
 						<li><a href="${absUri }/freeboard/list.do">자유게시판</a></li>
+						<li><a href="${absUri }/trendboard/list.do">주식현황</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<c:if test="${ empty id }">
@@ -107,7 +108,8 @@ article {
 							<li><a href="../member/logout.do"> <span
 									class="glyphicon glyphicon-log-out"> </span>로그아웃
 							</a></li>
-							<li><a href="#"> <span
+							
+							<li><a href="../member/mypage.do"> <span
 									class="glyphicons glyphicons-notes-2"></span>마이페이지
 							</a></li>
 						</c:if>

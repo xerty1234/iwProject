@@ -15,9 +15,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+  
 <script>
 $(document).ready(function(){
-// 	alert("OK");
+	 $('#table_id').DataTable();
 
     $("#write").click(function(){
     	var no = 2;
@@ -35,36 +39,37 @@ $(document).ready(function(){
 <div class="panel_group">
 <div class="panel panel-primary">
 <div class="panel-heading">
-<h1>게시판 리스트</h1>
+<h1>주가 리스트</h1>
 </div>
 <div class="panel-body">
-<table class="table">
+<table class="table" id="table_id">
 <thead>
 	<tr>
-		<th>번호</th>
-		<th>아이디</th>
-		<th>닉네임</th>
-		<th>등급</th>
+		<th>종목명</th>
+		<th>현제가</th>
+		<th>전일비</th>
+		<th>등락률</th>
+		<th>시가충액</th>
+		<th>상장주식수</th>
+		<th>외국인비율</th>
 	</tr>
 </thead>
 <tbody>
 <!-- 데이터를 출력하는 반복 처리 -->
-<c:forEach items="${list }" var="memberDTO">
+<c:forEach items="${list }" var="DTO">
 	<tr class="data">
-		<td>${memberDTO.no }</td>
-		<td>${memberDTO.id }</td>
-		<td>${memberDTO.nickname }</td>
-		<td>${memberDTO.grade }</td>
+		<td>${DTO.title }</td>
+		<td>${DTO.present }</td>
+		<td>${DTO.content }</td>
+		<td>${DTO.content2 }</td>
+		<td>${DTO.content3 }</td>
+		<td>${DTO.content4 }</td>
+		<td>${DTO.content5 }</td>
+		
 	</tr>
 </c:forEach>
 </tbody>
 <tfoot>
-	<tr>
-		
-		<td colspan="1">
-			<button id="write" class="btn btn-primary">회원가입</button>
-		</td>
-	</tr>
 </tfoot>
 </table>
 </div>

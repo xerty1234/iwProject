@@ -54,7 +54,7 @@ public class Beans extends HttpServlet {
 	public static String pre = "/WEB-INF/news";
 	public static String memberPre = "/WEB-INF";
 	public static String infopre = "/WEB-INF/info";
-	public static String trendpre = "/WEB-INF/trend";
+	public static String trendpre = "/WEB-INF";
 	public static String freeper = "/WEB-INF/free";
 	public static String suf = ".jsp";
 	
@@ -72,7 +72,7 @@ public class Beans extends HttpServlet {
 		return infopre+uri.substring(0, uri.lastIndexOf("."))+suf;
 	}
 	public static String trend_getJsp(String uri) {
-		return infopre+uri.substring(0, uri.lastIndexOf("."))+suf;
+		return trendpre+uri.substring(0, uri.lastIndexOf("."))+suf;
 	}
 	
 	public static String free_getJsp(String uri) {
@@ -96,8 +96,8 @@ public class Beans extends HttpServlet {
 		daoBeans.put("NewsReplyDAO", new NewsReplyDAO() );
 		daoBeans.put("trendboardReplyDAO", new TrendReplyDAO() );
 		
-		daoBeans.put("freeboardDAO", new FreeDAO());
-		daoBeans.put("freeReplyDAO", new FReplyDAO());
+		daoBeans.put("FreeDAO", new FreeDAO());
+		daoBeans.put("FReplyDAO", new FReplyDAO());
 		
 		
 		// ======== service를 생성해서 저장하는 프로그램 작성 =============

@@ -379,4 +379,79 @@ public class MemberDAO
 		}
 	}
 
+
+
+	public MemberDTO mypage(String id)
+	{
+		System.out.println("MemberDAO.login()");
+		// 결과를 저장해서 리턴하는 객체 - Controller에서 생성해서 전달해준다. - return을 하지 않아도 된다.
+		// 사용할 객체를 선언
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberDTO memberDTO = new MemberDTO();
+		try
+		{
+			// 1. 확인, 2.연결
+			con = DBUtil.getConnection();
+			// 3. sql 작성
+			String sql = "select no, id, password, nickname, grade, writedate, connectiondate"
+					+ " from member_board"
+					+ " where id=?";
+				
+			// 4. 처리객체
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+
+			// 5. 실행 - select : executeQuery() - resultSet이 결과로 나온다.
+			// - insert, update, delete : executeUpdate() - int 가 나온다.
+			rs = pstmt.executeQuery();
+
+			// 6. 표시 -> jsp : 데이터를 담아서 넘긴다.
+			if (rs.next())
+			{ // 데이터가 있으면 로그인 처리를 위한 정보를 담는다.
+				memberDTO.setId(rs.getString("id"));
+				memberDTO.setNo(rs.getInt("no"));
+				memberDTO.setPassword(rs.getString("password"));
+				memberDTO.setNickname(rs.getString("nickname"));
+				memberDTO.setGrade(rs.getString("grade"));
+				memberDTO.setWritedate(rs.getString("writedate"));
+				memberDTO.setConnectiondate(rs.getString("connectiondate"));
+				System.out.println(memberDTO);
+			} else
+			{
+				memberDTO = null;
+				System.out.println("MemberDAO.login().else.memberDTO:" + memberDTO);
+			}
+			return memberDTO;
+		} 
+		catch (Exception e)
+		{
+			// TODO: handle exception
+			try
+			{
+				throw new SQLException("회원 정보를 불러오는 중 DB 오류");
+				
+			} catch (SQLException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} finally
+		{
+			try
+			{
+				DBUtil.close(con, pstmt, rs);
+			} catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return null;
+	}
+
 }

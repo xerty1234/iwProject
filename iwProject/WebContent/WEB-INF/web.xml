@@ -78,6 +78,7 @@
   </servlet-mapping>
   
   
+  
   <servlet>
   <servlet-name>freeController</servlet-name>
   <servlet-class>com.iw.free.controller.FreeController</servlet-class>
@@ -87,6 +88,16 @@
   <url-pattern>/freeboard/*</url-pattern>
   </servlet-mapping>
   
+  
+  
+    <servlet>
+  <servlet-name>TrendController</servlet-name>
+  <servlet-class>com.iw.trendboard.controller.BoardController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>TrendController</servlet-name>
+  <url-pattern>/trendboard/*</url-pattern>
+  </servlet-mapping>
   
   
   

@@ -37,6 +37,11 @@ $(document).ready(function(){
 <tbody>
 <!-- 데이터를 입력하는 -->
 	<tr>
+		<th>번호</th>
+		<td><input name="no" size="10" readonly="readonly"
+		value="${boardDTO.no }" class="form-control"/></td>
+	</tr>
+	<tr>
 		<th>아이디</th>
 		<td><input name="title" size="60" maxlength="100"
 		value="${boardDTO.id }" class="form-control"/></td>
