@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
 <title>주가 게시판</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -34,6 +37,8 @@ $(document).ready(function(){
 <link rel="stylesheet" href="../css/board.css" />
 </head>
 <body>
+
+
 <div class="container">
 <div class="panel_group">
 <div class="panel panel-primary">
@@ -68,7 +73,11 @@ $(document).ready(function(){
 <!--     </div>  -->
 <!--   </div> -->
 <!-- </form>  -->
+
+
+
 </div>
+
 <div class="panel-body">
 <table class="display" id="table_id">
 <thead>

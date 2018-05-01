@@ -35,10 +35,19 @@ $(document).ready(function(){
 <link rel="stylesheet" href="../css/board.css" />
 </head>
 <body>
+
+
+   <iframe src="http://www.everdevel.com" style="width:90%" height="500" scrolling="auto">
+    </iframe>
+
+
+
 <div class="container">
 <div class="panel_group">
 <div class="panel panel-primary">
 <div class="panel-heading">
+
+
 <h1>주가 리스트</h1>
 </div>
 <div class="panel-body">

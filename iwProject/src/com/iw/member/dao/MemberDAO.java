@@ -188,19 +188,20 @@ public class MemberDAO
 		// 사용한 객체 선언
 		Connection con = null; // 연결 객체
 		PreparedStatement pstmt = null; // 처리문 객체
+		System.out.println(boardDTO);
+		
 		try
 		{
 			// 1. 드라이버 확인 //2. 연결
 			con = DBUtil.getConnection();
 			// 3. sql문 작성
-			String sql = "update member_board set" + "id=?, password=?, nickname=?, grade=?" + " where no=?";
+			String sql = "update member_board set" + " password=?, nickname=?, grade=?" + " where no=?";
 			// 4. 처리문 객체
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, boardDTO.getId());
-			pstmt.setString(2, boardDTO.getPassword());
-			pstmt.setString(3, boardDTO.getNickname());
-			pstmt.setString(4, boardDTO.getGrade());
-			pstmt.setInt(5, boardDTO.getNo());
+			pstmt.setString(1, boardDTO.getPassword());
+			pstmt.setString(2, boardDTO.getNickname());
+			pstmt.setString(3, boardDTO.getGrade());
+			pstmt.setInt(4, boardDTO.getNo());
 			// 5. 실행 -> select: executeQuery()
 			// insert, update, delete:executeUpdate()
 			pstmt.executeUpdate();
@@ -314,7 +315,7 @@ public class MemberDAO
 			// 1. 확인, 2.연결
 			con = DBUtil.getConnection();
 			// 3. sql 작성
-			String sql = "select id, nickname, grade " + " from member_board where id = ? and password = ?";
+			String sql = "select no,id, nickname, grade " + " from member_board where id = ? and password = ?";
 			// 4. 처리객체
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, boardDTO.getId());
@@ -327,6 +328,7 @@ public class MemberDAO
 			// 6. 표시 -> jsp : 데이터를 담아서 넘긴다.
 			if (rs.next())
 			{ // 데이터가 있으면 로그인 처리를 위한 정보를 담는다.
+				boardDTO.setNo(Integer.parseInt(rs.getString("no")));
 				boardDTO.setNickname(rs.getString("nickname"));
 				boardDTO.setGrade(rs.getString("grade"));
 				System.out.println(boardDTO);

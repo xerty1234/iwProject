@@ -29,7 +29,7 @@
 		});
 		$("#delete").click(function() {
 			if (confirm("정말 삭제하시겠습니까?"))
-				location = "delete.do?no=" + $("#td_no").text();
+				location = "delete.do";
 		});
 		$("#list").click(function() {
 			location = "${absUri }/main/main.do";
