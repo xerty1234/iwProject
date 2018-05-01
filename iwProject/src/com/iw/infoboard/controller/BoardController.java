@@ -113,6 +113,20 @@ public class BoardController extends HttpServlet {
 				jsp = "redirect:list.do";
 				System.out.println(jsp);
 				break;
+				
+			case "/infoboard/replyDelete.do":
+				// 삭제 처리할 서비스를 가져오자. - BoardDeleteService가 필요하다.
+				service = Beans.getService(command);
+				// 글번호를 받아서 삭제 처리를 한다.
+				System.out.println(request.getParameter("rno"));
+				System.out.println(request.getParameter("no"));
+				service.excute(Integer.parseInt(request.getParameter("rno")));
+				// jsp 이름을 만들어 내고 밑에서 forward 시킨다.
+				jsp = "view.do";
+				request.setAttribute("no", request.getAttribute("no"));
+				System.out.println(jsp);
+				break;
+				
 			default:
 				System.out.println("존재하지 않는 자원을 요청");
 				jsp="/WEB-INF/infoboard/error/404.jsp";

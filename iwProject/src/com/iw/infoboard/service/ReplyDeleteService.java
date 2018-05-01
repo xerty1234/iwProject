@@ -1,16 +1,17 @@
 package com.iw.infoboard.service;
 
 
+import com.iw.infoboard.dao.ReplyDAO;
 import com.iw.infoboard.dao.infoBoardDAO;
 import com.webjjang.util.ServiceInterface;
 
 public class ReplyDeleteService implements ServiceInterface{
 	
-	private infoBoardDAO boardDAO;
+	private ReplyDAO boardDAO;
 	
 	@Override
 	public void setDAO(Object obj) {
-		this.boardDAO = (infoBoardDAO) obj;
+		this.boardDAO = (ReplyDAO) obj;
 	}
 	
 	public Integer excute(Object no){
