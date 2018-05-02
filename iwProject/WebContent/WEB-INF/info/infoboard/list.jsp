@@ -34,11 +34,11 @@ $(document).ready(function(){
 <link rel="stylesheet" href="../css/board.css" />
 </head>
 <body>
-<div class="container">
-<div class="panel_group">
-<div class="panel panel-primary">
+<div class="container" align="center">
+<div class="panel_group" >
+<div class="Panel with panel-success class" >
 <div class="panel-heading">
-<h1>정보게시판 </h1>
+<h1 style= height:70px border:3px solid green;>정보게시판 </h1>
 <!-- <form class="form-inline"> -->
 <!-- 	<input name="page" value="1" type="hidden" /> -->
 <%-- 	<input name="rowPerPage" value='${(empty param.rowPerPage)?"10":param.rowPerPage}' type="hidden" /> --%>
@@ -119,8 +119,8 @@ $(document).ready(function(){
 		</td>
 		<td colspan="2">
 			<div class="btn-group">
-				<button id="write" class="btn btn-primary">글쓰기</button>
-				<button id="reload" class="btn btn-info">새로고침</button>
+				<button id="write" class="btn btn-success" >글쓰기</button>
+				<button id="reload" class="btn btn-success" >새로고침</button>
 			</div>
 		</td>
 	</tr>
