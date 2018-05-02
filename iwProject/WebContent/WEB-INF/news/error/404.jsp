@@ -28,8 +28,8 @@
   <div class="jumbotron">
     <p>404에러는 항상 대략 난감하다.</p>  
     <p>이것은 오류 페이지입니다. 부트스트랩 점보트론으로 꾸며졌습니다. powered by 송근모</p> 
-  	<img src ="https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/pure-css-free-404-error-page-templates.jpg"
-  	style="width:800px; height:600px"/>
+  	<img  class="img-rounded" src ="https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/pure-css-free-404-error-page-templates.jpg"
+  	style="width:800px; height:600px; " />
   </div>
 </div>
 

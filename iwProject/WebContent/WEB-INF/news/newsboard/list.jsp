@@ -44,9 +44,12 @@
 <body>
 	<div class="container">
 		<div class="panel_group">
-			<div class="panel panel-primary">
+			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h1>게시판 리스트</h1>
+				<div class="jumbotron" style="background-image:url(https://s3-us-west-2.amazonaws.com/internationalwomensday/home/iwd-news.png) ">
+  <h1 style="color:black; center">주식 뉴스</h1>
+</div>
+					
 <!-- 					<form class="form-inline"> -->
 <!-- 						<input name="page" value="1" type="hidden" /> <input -->
 <!-- 							name="rowPerPage" -->
@@ -91,7 +94,7 @@
 								<th>조회수</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody >
 							<!-- 데이터를 출력하는 반복 처리 -->
 							<c:forEach items="${list }" var="boardDTO">
 								<tr class="data">
@@ -115,7 +118,7 @@
 											</a></li>
 										</c:if>
 										<c:forEach begin="${pageObject.startPage }"
-											end="${pageObject.endPage }" var="idx">
+										end="${pageObject.endPage }" var="idx"> 
 											<li ${(pageObject.page == idx)?"class='active'":"" }><a
 												href='list.do?page=${idx }&rowPerPage=${(empty param.rowPerPage)?"10":param.rowPerPage}&searchKey=${param.searchKey}&searchWord=${param.searchWord}'>
 													${idx }</a></li>
@@ -124,16 +127,15 @@
 											<li><a
 												href='list.do?page=${pageObject.endPage + 1 }&rowPerPage=${(empty param.rowPerPage)?"10":param.rowPerPage}&searchKey=${param.searchKey}&searchWord=${param.searchWord}'>
 													<i class="glyphicon glyphicon-step-forward"></i>
-											</a></li>
+											</a></li> 
 										</c:if>
-									</ul>
-								</td>
-								<td colspan="2">
+									</ul> 
+								</td> 
+								<td colspan="2"> 
 									<div class="btn-group">
-									</div>
-								</td>
-							</tr>
-						</tfoot>
+								</div> 
+ 							</tr>
+ 						</tfoot> 
 					</table>
 				</div>
 			</div>

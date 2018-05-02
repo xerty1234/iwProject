@@ -1,4 +1,7 @@
 
+<%@page import="com.iw.trendboard.dto.TrendBoardDTO"%>
+<%@page import="com.iw.trend.crawler.StockCrawler"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.iw.member.dto.MemberDTO" %>
 <%@page import="com.iw.member.service.MemberListService" %>
@@ -6,6 +9,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+ <%
+ 	//StockCrawler sc = new StockCrawler();
+ 	ArrayList<TrendBoardDTO> temp = (ArrayList<TrendBoardDTO>)StockCrawler.crawler();
+ 	
+ 	System.out.println(temp);
+ 	
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +56,9 @@ $(document).ready(function(){
 		google.charts.setOnLoadCallback(drawVisualization);
 	
 		function drawVisualization() { 
-			var list = <%= request.getParameter("list") %>
+			var list = <%=temp%>;
+			alert(list[0]);
+			
 			
 			
 			
