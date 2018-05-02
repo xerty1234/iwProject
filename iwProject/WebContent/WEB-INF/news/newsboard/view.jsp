@@ -107,7 +107,7 @@ $(document).ready(function(){
 <br/>
 <!-- 사진 이미지와 기사를 출력한다.  -->
 <div style="float:left; margin: 30px"><img src="${boardDTO.imageLink}" /></div>
-<div style="font-size: 18px; text-align: center">${boardDTO.article}</div>
+<div style="font-size: 18px; text-align: center"><p class="lead">${boardDTO.article}</p></div>
 
 </div>
 
