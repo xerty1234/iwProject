@@ -15,6 +15,16 @@ public class StockCrawler
 {
 	// 주식 시가총액 게시판의 1~50페이지의 모든 주식을 가져온다. 총 1442개 항목
 
+	public static String remove (String temp)
+	{
+		String match = "[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]";
+		 temp =temp.replaceAll(match, "");
+		 System.out.println(temp);
+	      return temp;
+
+	
+	}
+	
 	public static List<TrendBoardDTO> crawler() 
 	{
 
@@ -53,7 +63,7 @@ public class StockCrawler
 			TrendBoardDTO tempDTO = new TrendBoardDTO();
 			tempDTO.setNo(Integer.parseInt(temp.get(i)));
 			tempDTO.setTitle(temp.get(i + 1));
-			tempDTO.setPresent(temp.get(i + 2));
+			tempDTO.setPresent(remove(temp.get(i + 2)));
 			tempDTO.setContent(temp.get(i + 3));
 			tempDTO.setContent2(temp.get(i + 4));
 			tempDTO.setContent3(temp.get(i + 5));

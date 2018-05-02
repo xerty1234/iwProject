@@ -27,9 +27,9 @@
 	    <div class="form-group">
 	      <label for="password">암호</label>
 	      <input type="password" class="form-control" id="password" name="password"
-	      required="required" pattern=".{4,10}" maxlength="10">
+	      required="required" pattern=".{4,10}" maxlength="10" placeholder="비밀번호 입력">
 	    </div>
-	    <button type="submit" class="btn btn-default">로그인</button>
+	    <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
 	  </form>
 	 </div>
 	</div>

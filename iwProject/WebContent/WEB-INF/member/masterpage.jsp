@@ -27,12 +27,12 @@
 		
 		$("#update").click(function() {
 			 var no = ${memberDTO.no};
-			 alert(no);
 			location = "update.do?no="+ no;
 		});
 		$("#delete").click(function() {
 			if (confirm("정말 삭제하시겠습니까?"))
-				location = "delete.do";
+				 var no = ${memberDTO.no};
+				location = "delete.do?no="+no;
 		});
 		$("#list").click(function() {
 			location = "${absUri }/main/main.do";

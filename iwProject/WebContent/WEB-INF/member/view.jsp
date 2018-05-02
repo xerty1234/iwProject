@@ -26,7 +26,6 @@
 			//$("#dataForm").attr("action","update.do");
 			//$("#dataForm").submit();
 			 var no = $(this).find("#td_no").text()
-			 alert(no);
 			location = "update.do?no=" + no;
 		});
 		$("#delete").click(function() {

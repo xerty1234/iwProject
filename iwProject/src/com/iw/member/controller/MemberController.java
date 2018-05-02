@@ -104,21 +104,21 @@ public class MemberController extends HttpServlet
 				service = Beans.getService(command);
 				// 처리를해서 DB에 있는 데이터를 바아와서 request에 담아둔다.
 				// int no3 = (int)session3.getAttribute("no");
-
-				if (request.getParameter("no") == null)
+				int no3 = Integer.parseInt(request.getParameter("no"));
+				service.excute(no3);
+				String tempgrade =(String)session3.getAttribute("grade");
+				if ( tempgrade.equals("관리자"))
 				{
-					int no3 = (int) session3.getAttribute("no");
-					service.excute(no3);
+					jsp = "list.do";
 				}
 				else
 				{
-					service.excute(Integer.parseInt(request.getParameter("no")));
+					request.getSession().invalidate();
+					//jsp = request.getContextPath() + "/main/main.jsp";
+					jsp = "redirect:" + request.getContextPath() + "/main/main.do";
+					//jsp = "/main/main.do";
+					//jsp = Beans.Member_getJsp(command);
 				}
-				request.getSession().invalidate();
-				//jsp = request.getContextPath() + "/main/main.jsp";
-				jsp = "redirect:" + request.getContextPath() + "/main/main.do";
-				//jsp = "/main/main.do";
-				//jsp = Beans.Member_getJsp(command);
 				System.out.println(jsp);
 				break;
 			case "/member/mypage.do":
@@ -189,7 +189,13 @@ public class MemberController extends HttpServlet
 				service = Beans.getService(command);
 				System.out.println(service);
 				service.excute(memberDTO);
-				jsp = "list.do";
+				HttpSession session2 = request.getSession();
+				session2.setAttribute("id", memberDTO.getId());
+				session2.setAttribute("nickname", memberDTO.getNickname());
+				session2.setAttribute("no", memberDTO.getNo());
+				session2.setAttribute("grade", memberDTO.getGrade());
+				
+				jsp = request.getContextPath() + "/main/main.do";
 				System.out.println(jsp);
 				break;
 
@@ -203,8 +209,8 @@ public class MemberController extends HttpServlet
 				
 				MemberDTO boardDTO2 = new MemberDTO();
 				boardDTO2 = (MemberDTO) service.excute(no2);
-				HttpSession session2 = request.getSession();
-				String temp = (String)session2.getAttribute("grade");
+				HttpSession session3 = request.getSession();
+				String temp = (String)session3.getAttribute("grade");
 				if (!temp.equals("관리자"))
 				{
 					boardDTO2.setPassword(request.getParameter("id"));

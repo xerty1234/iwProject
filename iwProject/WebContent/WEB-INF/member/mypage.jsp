@@ -26,7 +26,6 @@
 		
 		$("#update").click(function() {
 				var no = ${memberDTO.no}
-				 alert(no);
 				location = "update.do?no="+no;
 			});
 		$("#delete").click(function() {

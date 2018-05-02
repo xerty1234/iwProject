@@ -31,7 +31,6 @@ $(document).ready(function(){
 
 	$(".data").click(function() {
  		var no = $(this).find("td:first").text();
-		alert(no);
  		location = "${absUri}/member/masterpage.do?no=" + no;
 	});
 });
