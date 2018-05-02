@@ -42,12 +42,12 @@
 <link rel="stylesheet" href="../css/board.css" />
 </head>
 <body>
-	<div class="container">
+	<div class="container" align=center>
 		<div class="panel_group">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 				<div class="jumbotron" style="background-image:url(https://s3-us-west-2.amazonaws.com/internationalwomensday/home/iwd-news.png) ">
-  <h1 style="color:orange;  ; center">주식 뉴스</h1>
+  <h1 style="color:fuchsia; ">주식 뉴스</h1>
 </div>
 					
 <!-- 					<form class="form-inline"> -->
