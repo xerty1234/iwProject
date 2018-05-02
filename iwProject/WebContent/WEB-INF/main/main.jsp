@@ -58,87 +58,89 @@ text-overflow: ellipsis;
 <!-- Carousel
     ================================================== -->
 <body>
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-			<li data-target="#myCarousel" data-slide-to="3"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<img class="first-slide"
-					src="http://cichart.moneta.kr/pax/chart/lineAreaChart/V201724/paxLineAreaChartV201724Min01.jsp?abbrSymbol=001"
-					alt="First slide" style="width:20%;">
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>정보게시판.</h1>
-						<p>
-							정보등을 공유하는 게시판
-						</p>
+<br/>
+<br/>
+<!-- 	<div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
+<!-- 		<!-- Indicators --> 
+<!-- 		<ol class="carousel-indicators"> -->
+<!-- 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
+<!-- 			<li data-target="#myCarousel" data-slide-to="1"></li> -->
+<!-- 			<li data-target="#myCarousel" data-slide-to="2"></li> -->
+<!-- 			<li data-target="#myCarousel" data-slide-to="3"></li> -->
+<!-- 		</ol> -->
+<!-- 		<div class="carousel-inner" role="listbox"> -->
+<!-- 			<div class="item active"> -->
+<!-- 				<img class="first-slide" -->
+<!-- 					src="http://cichart.moneta.kr/pax/chart/lineAreaChart/V201724/paxLineAreaChartV201724Min01.jsp?abbrSymbol=001" -->
+<!-- 					alt="First slide" style="width:20%;"> -->
+<!-- 				<div class="container"> -->
+<!-- 					<div class="carousel-caption"> -->
+<!-- 						<h1>정보게시판.</h1> -->
+<!-- 						<p> -->
+<!-- 							정보등을 공유하는 게시판 -->
+<!-- 						</p> -->
 <!-- 						<p> -->
 <!-- 							<a class="btn btn-lg btn-primary" href="#" role="button">Sign -->
 <!-- 								up today</a> -->
 <!-- 						</p> -->
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<img class="second-slide"
-					src="http://baruninvest-blog.com/wp-content/uploads/2017/12/%EC%A3%BC%EC%8B%9D2.png"
-					alt="Second slide" style="width:20%;">
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>자유게시판 </h1>
-						<p>자유롭게 게시물을 올리는 게시판</p>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="item"> -->
+<!-- 				<img class="second-slide" -->
+<!-- 					src="http://baruninvest-blog.com/wp-content/uploads/2017/12/%EC%A3%BC%EC%8B%9D2.png" -->
+<!-- 					alt="Second slide" style="width:20%;"> -->
+<!-- 				<div class="container"> -->
+<!-- 					<div class="carousel-caption"> -->
+<!-- 						<h1>자유게시판 </h1> -->
+<!-- 						<p>자유롭게 게시물을 올리는 게시판</p> -->
 <!-- 						<p> -->
 <!-- 							<a class="btn btn-lg btn-primary" href="#" role="button">Learn -->
 <!-- 								more</a> -->
 <!-- 						</p> -->
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<img class="third-slide"
-					src="http://imgnews.naver.com/image/5093/2016/01/19/news_1453169351_812492_main1_99_20160119112003.jpg"
-					alt="Third slide" style="width:20%" style="h">
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>뉴스 게시판 </h1>
-						<p>주요 뉴스등이 있는 게시판</p>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="item"> -->
+<!-- 				<img class="third-slide" -->
+<!-- 					src="http://imgnews.naver.com/image/5093/2016/01/19/news_1453169351_812492_main1_99_20160119112003.jpg" -->
+<!-- 					alt="Third slide" style="width:20%" style="h"> -->
+<!-- 				<div class="container"> -->
+<!-- 					<div class="carousel-caption"> -->
+<!-- 						<h1>뉴스 게시판 </h1> -->
+<!-- 						<p>주요 뉴스등이 있는 게시판</p> -->
 <!-- 						<p> -->
 <!-- 							<a class="btn btn-lg btn-primary" href="#" role="button">Browse -->
 <!-- 								gallery</a> -->
 <!-- 						</p> -->
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<img class="fourth-slide"
-					src="http://imgnews.naver.com/image/5399/2018/04/30/0000004422_001_20180430093230940.jpg"
-					alt="Fourth slide" style="width:20%;">
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>주가게시판 </h1>
-						<p>주가정보, 등락률 등을 확인하는 게시판</p>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="item"> -->
+<!-- 				<img class="fourth-slide" -->
+<!-- 					src="http://imgnews.naver.com/image/5399/2018/04/30/0000004422_001_20180430093230940.jpg" -->
+<!-- 					alt="Fourth slide" style="width:20%;"> -->
+<!-- 				<div class="container"> -->
+<!-- 					<div class="carousel-caption"> -->
+<!-- 						<h1>주가게시판 </h1> -->
+<!-- 						<p>주가정보, 등락률 등을 확인하는 게시판</p> -->
 <!-- 						<p> -->
 <!-- 							<a class="btn btn-lg btn-primary" href="#" role="button">Learn -->
 <!-- 								more</a> -->
 <!-- 						</p> -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<a class="left carousel-control" href="#myCarousel" role="button"
-			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel" role="button"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<a class="left carousel-control" href="#myCarousel" role="button" -->
+<!-- 			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" -->
+<!-- 			aria-hidden="true"></span> <span class="sr-only">Previous</span> -->
+<!-- 		</a> <a class="right carousel-control" href="#myCarousel" role="button" -->
+<!-- 			data-slide="next"> <span -->
+<!-- 			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+<!-- 			<span class="sr-only">Next</span> -->
+<!-- 		</a> -->
+<!-- 	</div> -->
 	<!-- /.carousel -->
 
 
@@ -216,7 +218,8 @@ text-overflow: ellipsis;
 			</div>
 			<div class="col-md-5">
 				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" src="${news.imageLink }">
+					data-src="holder.js/500x500/auto" src="${news.imageLink }"
+					style="width:400px; height:300px">
 			</div>
 		</div>
 
@@ -231,7 +234,8 @@ text-overflow: ellipsis;
 			</div>
 			<div class="col-md-5 col-md-pull-7">
 				<img class="featurette-image img-responsive center-block"
-					data-src="holder.js/500x500/auto" src="http://files.idg.co.kr/ciokr/image/electronic-jungle.jpg">
+					data-src="holder.js/500x500/auto" src="http://files.idg.co.kr/ciokr/image/electronic-jungle.jpg"
+					style="width:400px; height:300px">
 			</div>
 		</div>
 
@@ -242,12 +246,12 @@ text-overflow: ellipsis;
 				<h2 class="featurette-heading">
 				<span class="text-muted">자유게시판 핫이슈.</span><br/>	${free.title }  
 				</h2>
-				<p class="lead">${free.content }</p>
+				<p>${free.content }</p>
 			</div>
 			<div class="col-md-5">
 				<img class="featurette-image img-responsive center-block"
 					data-src="holder.js/500x500/auto" alt="Generic placeholder image"
-					src="http://cfile23.uf.tistory.com/image/12426E3650283963054303">
+					src="http://cfile23.uf.tistory.com/image/12426E3650283963054303" style="width:400px; height:300px">
 			</div>
 		</div>
 
