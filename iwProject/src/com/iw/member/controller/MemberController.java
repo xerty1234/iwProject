@@ -211,7 +211,8 @@ public class MemberController extends HttpServlet
 				boardDTO2 = (MemberDTO) service.excute(no2);
 				HttpSession session3 = request.getSession();
 				String temp = (String)session3.getAttribute("grade");
-				if (!temp.equals("관리자"))
+				
+				if (temp.equals("관리자"))
 				{
 					boardDTO2.setPassword(request.getParameter("id"));
 				}
