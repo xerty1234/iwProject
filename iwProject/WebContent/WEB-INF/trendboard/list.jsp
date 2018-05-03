@@ -96,10 +96,10 @@ $(document).ready(function(){
 
 
 
-	<!-- <p align="middle"> -->
-	<!--    <iframe src="http://127.0.0.1:7776/" style="width:70%" height="600" scrolling="no" align="middle" frameborder="0"> -->
-	<!--    </iframe> -->
-	<!-- </p> -->
+	<p align="middle">
+	   <iframe src="http://127.0.0.1:7776/" style="width:70%" height="600" scrolling="no" align="middle" frameborder="0">
+	   </iframe>
+	</p>
 
 
 <!-- 	<div id="chart_div" style="width: 900px; height: 500px;" align="center"></div> -->

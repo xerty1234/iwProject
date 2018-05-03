@@ -35,7 +35,7 @@
 				location = "delete.do?no="+no;
 		});
 		$("#list").click(function() {
-			location = "${absUri }/main/main.do";
+			location = "${absUri }/member/list.do";
 		});
 	});
 </script>

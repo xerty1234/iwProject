@@ -74,7 +74,7 @@
 					<td colspan="2">
 						<button id="update" class="btn btn-primary">수정</button>
 						<button id="delete" class="btn btn-danger">탈퇴</button>
-						<button id="list" class="btn btn-success" >리스트</button>
+						<button id="list" class="btn btn-success" >메인</button>
 					</td>
 				</tr>
 			</tfoot>

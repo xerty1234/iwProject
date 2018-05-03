@@ -1,6 +1,9 @@
 package com.iw.trend.crawler;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +12,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.iw.trendboard.dto.TrendBoardDTO;
 
 public class StockCrawler
@@ -73,6 +78,18 @@ public class StockCrawler
 			//System.out.println(tempDTO);
 			list.add(tempDTO);
 		}
+		
+		Gson gson = new Gson();
+		String jsonArray = gson.toJson(temp);
+		
+		try (Writer writer = new FileWriter("d://Output.json")) {
+		    Gson gson2 = new GsonBuilder().create();
+		    gson2.toJson(jsonArray, writer);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		return list;
 		
